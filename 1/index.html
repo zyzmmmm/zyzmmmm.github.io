@@ -27,15 +27,26 @@
         of that era.</p>
 
     <p>This project will put his theory into practice by synthesizing the original image through the red, green, 
-        and blue channels of the image. On the basis of exhaustive search, I used the search method of image pyramid and the technique of automatic 
-        white balance to achieve faster search speed and higher image quality.</p>
+        and blue channels of the image. On the basis of exhaustive search, I used the search method of image 
+        pyramid and the technique of automatic white balance and edge detection to achieve faster search speed 
+        and higher image quality.</p>
     
     <img></img>
 
     <hr>
     
-    <h2>Image Matching</h2>
-    <p></p>
+    <h2>Image Synthesis</h2>
+    <p>At first, I assumed that the pixel offset was between -15 and 15, and found the best match between the red, 
+        green, and blue channels in this range. I used both MSE and NCC methods to calculate the matching score. 
+        Although both have good results, I believe NCC can match images more reasonably than MSE, because some 
+        images have pixels that are not similar in the three channels. For example, in emir.tif, the pixel value 
+        of clothes in the blue channel is larger, while the pixel value of clothes in the red channel is smaller. 
+        If you want to match the two, using MSE cannot well represent the degree of image matching because their 
+        pixel differences are significant. However, using NCC for absolute value calculation will not have such 
+        concerns. In the subsequent improvement work, I used NCC as my scoring function.</p>
+
+
+    
     <img></img>
 
     <hr>
