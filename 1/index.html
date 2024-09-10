@@ -12,14 +12,17 @@
         p {
             font-size: 18px;
         }
-        .image-wrapper {
-            text-align: center; 
-            max-width: 300px;
-            margin: auto; 
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; 
         }
-        .image-container img {
-            width: 200px; 
-            height: auto; 
+        .image-item {
+            text-align: center;
+        }
+        .image-item img {
+            max-width: 200px; 
+            height: auto;
         }
     </style>
 </head>
@@ -41,12 +44,18 @@
         and higher image quality.</p>
     
     <div class="image-container">
-        <img src="./media/cathedral.jpg" alt="cathedral.jpg" width="200">
-        <div class="caption">cathedral.jpg</div>
-        <img src="./media/monastery.jpg" alt="monastery.jpg" width="200">
-        <div class="caption">monastery.jpg</div>
-        <img src="./media/tobolsk.jpg" alt="tobolsk.jpg" width="200">
-        <div class="caption">tobolsk.jpg</div>
+        <div class="image-item">
+            <img src="cathedral.jpg" alt="Image 1">
+            <p>cathedral.jpg</p>
+        </div>
+        <div class="image-item">
+            <img src="monastery.jpg" alt="Image 2">
+            <p>monastery.jpg</p>
+        </div>
+        <div class="image-item">
+            <img src="tobolsk.jpg" alt="Image 3">
+            <p>tobolsk.jpg</p>
+        </div>
     </div>
 
     <hr>
@@ -70,12 +79,18 @@
         successfully matched, except for emir.tif. Next, I will use some improvement methods to make it match better.</p>
     
     <div class="image-container">
-        <img src="./media/cathedral.jpg" alt="cathedral.jpg" width="200">
-        <div class="caption">cathedral.jpg</div>
-        <img src="./media/monastery.jpg" alt="monastery.jpg" width="200">
-        <div class="caption">monastery.jpg</div>
-        <img src="./media/tobolsk.jpg" alt="tobolsk.jpg" width="200">
-        <div class="caption">tobolsk.jpg</div>
+        <div class="image-item">
+            <img src="cathedral.jpg" alt="Image 1">
+            <p>cathedral.jpg</p>
+        </div>
+        <div class="image-item">
+            <img src="monastery.jpg" alt="Image 2">
+            <p>monastery.jpg</p>
+        </div>
+        <div class="image-item">
+            <img src="tobolsk.jpg" alt="Image 3">
+            <p>tobolsk.jpg</p>
+        </div>
     </div>
 
     <hr>
