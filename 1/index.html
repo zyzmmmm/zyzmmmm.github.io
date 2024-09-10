@@ -12,6 +12,15 @@
         p {
             font-size: 18px;
         }
+        .image-wrapper {
+            text-align: center; 
+            max-width: 300px;
+            margin: auto; 
+        }
+        .image-container img {
+            width: 200px; 
+            height: auto; 
+        }
     </style>
 </head>
 <body>
@@ -33,8 +42,11 @@
     
     <div class="image-container">
         <img src="./media/cathedral.jpg" alt="cathedral.jpg" width="200">
+        <div class="caption">cathedral.jpg</div>
         <img src="./media/monastery.jpg" alt="monastery.jpg" width="200">
+        <div class="caption">monastery.jpg</div>
         <img src="./media/tobolsk.jpg" alt="tobolsk.jpg" width="200">
+        <div class="caption">tobolsk.jpg</div>
     </div>
 
     <hr>
@@ -49,39 +61,53 @@
         pixel differences are significant. However, using NCC for absolute value calculation will not have such 
         concerns. In the subsequent improvement work, I used NCC as my scoring function.</p>
 
-    <p>尽管穷举搜索在大部分时候都表现很好，但当通道的位移过大，搜索将耗费很长的时间。为了解决这一问题，我使用了图像金字塔的搜索方式。具体来说，将图像以二为比例缩放到合适的大小（例如小于40000像素），并在每个尺寸的对应位置周围上进行搜索，不断更新偏移量。在搜索之前，我裁剪掉了每个通道边缘的黑色像素，以免它们影响到匹配得分，最后在每个方向裁剪掉百分之十保持图像美观。在这一过程之后，大部分的图像已经能够成功匹配，除了emir.tif，接下来我将会使用一些改进方法让它匹配的更好。</p>
+    <p>Although exhaustive search performs well most of the time, when the channel displacement is too large, the 
+        search will take a long time. To solve this problem, I used the image pyramid search method. Specifically, 
+        the image is scaled proportionally to a suitable size (e.g. less than 40000 pixels) and searched around the 
+        corresponding position of each size, continuously updating the offset. Before searching, I cropped out the 
+        black pixels at the edges of each channel to avoid affecting the matching score, and finally cropped out 10% 
+        in each direction to maintain the beauty of the image. After this process, most of the images have been 
+        successfully matched, except for emir.tif. Next, I will use some improvement methods to make it match better.</p>
     
     <div class="image-container">
         <img src="./media/cathedral.jpg" alt="cathedral.jpg" width="200">
+        <div class="caption">cathedral.jpg</div>
         <img src="./media/monastery.jpg" alt="monastery.jpg" width="200">
+        <div class="caption">monastery.jpg</div>
         <img src="./media/tobolsk.jpg" alt="tobolsk.jpg" width="200">
+        <div class="caption">tobolsk.jpg</div>
     </div>
 
     <hr>
     
     <h2>Bells and Whistles</h2>
-    <h3>Automatic Edge Detection</h3>
+    <h3>Automatic Edge Detection and White Balance</h3>
 
-    <p>在选择评分函数的过程中我意识到，在匹配的过程中应当关注像素的变化，而不是它们的值。我尝试了使用Prewitt Operator的自动边缘检测和使用图像梯度作为特征输入，它们都表现得很好，尤其在emir.tif上有明显的提升。Prewitt Operator指x和y两个方向上的卷积核，我使用它在图像上进行卷积操作，得到x和y两个方向上的边缘检测结果，计算它们的平方和作为像素的输入特征。</p>
+    <p>In the process of selecting the scoring function, I realized that in the matching process, we should focus on the 
+        changes in pixels rather than their values. I tried using Prewitt Operator's automatic edge detection and using 
+        image gradients as feature input, both of which performed well, especially with significant improvements on emir.tif. 
+        Prewitt Operator refers to the convolution kernels in the x and y directions. I use it to perform convolution 
+        operations on the image, obtain edge detection results in the x and y directions, and calculate their sum of 
+        squares as input features for pixels. Futhermore, I transform the original RGB coordinates to XYZ coordinates, 
+        where Y represents the brightness of a pixel in images. I found the pixel with the highest brightness in the entire 
+        image, assuming it is white, and scaled the RGB of the entire image.</p>
 
     <div class="image-container">
         <img src="./media/cathedral.jpg" alt="cathedral.jpg" width="200">
         <img src="./media/monastery.jpg" alt="monastery.jpg" width="200">
         <img src="./media/tobolsk.jpg" alt="tobolsk.jpg" width="200">
     </div>
-    
-    <h3>White Balance</h3>
-    
-    <p>我将原始的RGB坐标变换到XYZ坐标，Y表示图像中一个像素的亮度。我寻找到整张图像的亮度最大的像素，假定这个像素为白色，并对整张图像RGB进行缩放。</p>
-
     <hr>
 
     <h2>Result</h2>
 
     <div class="image-container">
         <img src="./media/cathedral.jpg" alt="cathedral.jpg" width="200">
+        <div class="caption">Image Caption</div>
         <img src="./media/monastery.jpg" alt="monastery.jpg" width="200">
+        <div class="caption">Image Caption</div>
         <img src="./media/tobolsk.jpg" alt="tobolsk.jpg" width="200">
+        <div class="caption">Image Caption</div>
     </div>
 
     <div class="image-container">
