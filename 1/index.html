@@ -70,6 +70,13 @@
         pixel differences are significant. However, using NCC for absolute value calculation will not have such 
         concerns. In the subsequent improvement work, I used NCC as my scoring function.</p>
 
+    <div class="image-container">
+        <div class="image-item">
+            <img src="./resources/NCC function.jpg" alt="Image 1">
+            <p>NCC</p>
+        </div>
+    </div>
+    
     <p>Although exhaustive search performs well most of the time, when the channel displacement is too large, the 
         search will take a long time. To solve this problem, I used the image pyramid search method. Specifically, 
         the image is scaled proportionally to a suitable size (e.g. less than 40000 pixels) and searched around the 
@@ -102,16 +109,12 @@
 
      <div class="image-container">
         <div class="image-item">
-            <img src="./media/cathedral.jpg" alt="Image 1">
-            <p>cathedral.jpg</p>
+            <img src="./resources/emir_before.jpg" alt="Image 1">
+            <p>before</p>
         </div>
         <div class="image-item">
-            <img src="./media/monastery.jpg" alt="Image 2">
-            <p>monastery.jpg</p>
-        </div>
-        <div class="image-item">
-            <img src="./media/tobolsk.jpg" alt="Image 3">
-            <p>tobolsk.jpg</p>
+            <img src="./media/emir.jpg" alt="Image 2">
+            <p>after</p>
         </div>
     </div>
     <hr>
