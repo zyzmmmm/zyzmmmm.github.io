@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 1</title>
+    <title>Project 2</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,14 +27,15 @@
     </style>
 </head>
 <body>
-    <h1 style="text-align: center;">CS 180 Programming Project 1: Fun with Filters and Frequencies!</h1>
+    <h1 style="text-align: center;">CS 180 Programming Project 2: Fun with Filters and Frequencies!</h1>
     <h2 style="text-align: center;">Zhang Yuze</h2>
     
     <h2>Part 1</h2>
     <h3>Part 1.1: Finite Difference Operator</h3>
-    <p></p>
-
-    <p></p>
+    <p>In this section, I use Finite Difference Operator to convolve the image, calculate the gradient size 
+        of each pixel, and finally use a threshold to determine whether a pixel is an edge. If the threshold 
+        is large, not all edges can be represented; If the threshold is small, unwanted things may appear. 
+        After my adjustments, the output image is as follows:</p>
     
     <div class="image-container">
         <div class="image-item">
@@ -43,8 +44,42 @@
         </div>
     </div>
 
+    <hr>
+    
     <h3>Part 1.2: Derivative of Gaussian (DoG) Filter</h3>
 
+    <p>I used cv2.getGaussianKernel() to obtain a 1D Gaussian kernel and then calculated the outer product of 
+        this kernel with its transpose to get a 2D Gaussian kernel. First, I convolved the image with this kernel 
+        to produce a blurred image. Then, I applied the Finite Difference Operator mentioned in the previous 
+        question to detect edges, followed by thresholding for binarization. If I use the same threshold as in 
+        the previous question, not all edges can be detected because the image was blurred; however, when I lowered 
+        the threshold, the edge detection improved, and the resulting image became clearer and more continuous.</p>
+
+    <div class="image-container">
+        <div class="image-item">
+            <img src="./media/cathedral.jpg" alt="Image 1">
+            <p>(5, 2)(12, 3)</p>
+        </div>
+        <div class="image-item">
+            <img src="./media/church.jpg" alt="Image 2">
+            <p>(25, 4)(58, -4)</p>
+        </div>
+        <div class="image-item">
+            <img src="./media/emir.jpg" alt="Image 3">
+            <p>(49, 24)(107, 40)</p>
+        </div>
+    </div>
+
+    <p>Due to the associative property of convolution, convolving the 2D Gaussian kernel with the Finite Difference 
+        Operator first and then applying the resulting convolution kernel to the image will produce the same result.</p>
+
+    <div class="image-container">
+        <div class="image-item">
+            <img src="./resources/NCC function.jpg" alt="Image 1">
+            <p>NCC</p>
+        </div>
+    </div>
+    
     <hr>
     
     <h2>Part 2: Fun with Frequencies!</h2>
