@@ -1,1 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 100px;
+        }
+        p {
+            font-size: 18px;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; 
+        }
+        .image-item {
+            text-align: center;
+        }
+        .image-item img {
+            max-width: 400px; 
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">CS 180 Programming Project 1: Images of the Russian Empire</h1>
+    <h2 style="text-align: center;">Colorizing the Prokudin-Gorskii photo collection</h2>
+    <h2 style="text-align: center;">Zhang Yuze</h2>
+    
+    <h2>Overview</h2>
+    <p>Sergei Mikhailovich Prokudin-Gorskii (1863-1944) was a Russian photographer and chemist renowned for 
+        his pioneering work in early color photography. He record three exposures of every scene onto a glass 
+        plate using a red, a green, and a blue filter. His extensive collection of photographs, preserved and 
+        digitized by institutions like the Library of Congress, provides a unique and valuable historical record 
+        of that era.</p>
 
+    <p>This project will put his theory into practice by synthesizing the original image through the red, green, 
+        and blue channels of the image. On the basis of exhaustive search, I used the search method of image 
+        pyramid and the technique of automatic white balance and edge detection to achieve faster search speed 
+        and higher image quality.</p>
+    
+    <div class="image-container">
+        <div class="image-item">
+            <img src="./resources/raw_church.jpg" alt="Image 1">
+            <p>church.tif</p>
+        </div>
+    </div>
+
+    <hr>
+    
+    <h2>Image Synthesis</h2>
+    <p>At first, I assumed that the pixel offset was [-15, 15], and found the best match between the red, 
+        green, and blue channels in this range. I used both MSE and NCC methods to calculate the matching score. 
+        Although both have good results, I believe NCC can match images more reasonably than MSE, because some 
+        images have pixels that are not similar in the three channels. For example, in emir.tif, the pixel value 
+        of clothes in the blue channel is larger, while the pixel value of clothes in the red channel is smaller. 
+        If you want to match the two, using MSE cannot well represent the degree of image matching because their 
+        pixel differences are significant. However, using NCC for absolute value calculation will not have such 
+        concerns. In the subsequent improvement work, I used NCC as my scoring function.</p>
+
+    <div class="image-container">
+        <div class="image-item">
+            <img src="./resources/NCC function.jpg" alt="Image 1">
+            <p>NCC</p>
+        </div>
+    </div>
+    
+    <p>Although exhaustive search performs well most of the time, when the channel displacement is too large, the 
+        search will take a long time. To solve this problem, I used the image pyramid search method. Specifically, 
+        the image is scaled proportionally to a suitable size (e.g. less than 40000 pixels) and searched around the 
+        corresponding position of each size, continuously updating the offset. Before searching, I cropped out the 
+        black pixels at the edges of each channel to avoid affecting the matching score, and finally cropped out 10% 
+        in each direction to maintain the beauty of the image. After this process, most of the images have been 
+        successfully matched, except for emir.tif. Next, I will use some improvement methods to make it match better.</p>
+    
+    <div class="image-container">
+        <div class="image-item">
+            <img src="./resources/Image_pyramid.svg" alt="Image 1">
+            <p>https://en.wikipedia.org/wiki/Pyramid_(image_processing)</p>
+        </div>
+    </div>
+    
+
+    <hr>
+    
+    <h2>Bells and Whistles</h2>
+    <h3>Automatic Edge Detection and White Balance</h3>
+
+    <p>In the process of selecting the scoring function, I realized that in the matching process, we should focus on the 
+        changes in pixels rather than their values. I tried using Prewitt Operator's automatic edge detection and using 
+        image gradients as feature input, both of which performed well, especially with significant improvements on emir.tif. 
+        Prewitt Operator refers to the convolution kernels in the x and y directions. I use it to perform convolution 
+        operations on the image, obtain edge detection results in the x and y directions, and calculate their sum of 
+        squares as input features for pixels. Futhermore, I transform the original RGB coordinates to XYZ coordinates, 
+        where Y represents the brightness of a pixel in images. I found the pixel with the highest brightness in the entire 
+        image, assuming it is white, and scaled the RGB of the entire image.</p>
+
+     <div class="image-container">
+        <div class="image-item">
+            <img src="./resources/emir before edge detect.jpg" alt="Image 1">
+            <p>before</p>
+        </div>
+        <div class="image-item">
+            <img src="./media/emir.jpg" alt="Image 2">
+            <p>after</p>
+        </div>
+    </div>
+    <hr>
+
+    <h2>Result</h2>
+
+     <div class="image-container">
+        <div class="image-item">
+            <img src="./media/cathedral.jpg" alt="Image 1">
+            <p>(5, 2)(12, 3)</p>
+        </div>
+        <div class="image-item">
+            <img src="./media/church.jpg" alt="Image 2">
+            <p>(25, 4)(58, -4)</p>
+        </div>
+        <div class="image-item">
+            <img src="./media/emir.jpg" alt="Image 3">
+            <p>(49, 24)(107, 40)</p>
+        </div>
+    </div>
+
+     <div class="image-container">
+        <div class="image-item">
+            <img src="./media/harvesters.jpg" alt="Image 1">
+            <p>(60, 17)(124, 14)</p>
+        </div>
+        <div class="image-item">
+            <img src="./media/icon.jpg" alt="Image 2">
+            <p>(42, 17)(90, 23)</p>
+        </div>
+        <div class="image-item">
+            <img src="./media/lady.jpg" alt="Image 3">
+            <p>(56, 9)(120, 13)</p>
+        </div>
+    </div>
+    
+     <div class="image-container">
+        <div class="image-item">
+            <img src="./media/melons.jpg" alt="Image 1">
+            <p>(80, 10)(177, 13)</p>
+        </div>
+        <div class="image-item">
+            <img src="./media/monastery.jpg" alt="Image 2">
+            <p>(-3, 2)(3, 2)</p>
+        </div>
+        <div class="image-item">
+            <img src="./media/onion_church.jpg" alt="Image 3">
+            <p>(52, 25)(107, 35)</p>
+        </div>
+    </div>
+
+    <div class="image-container">
+        <div class="image-item">
+            <img src="./media/sculpture.jpg" alt="Image 1">
+            <p>(33, -11)(140, -26)</p>
+        </div>
+        <div class="image-item">
+            <img src="./media/self_portrait.jpg" alt="Image 2">
+            <p>(78, 29)(176, 37)</p>
+        </div>
+        <div class="image-item">
+            <img src="./media/three_generations.jpg" alt="Image 3">
+            <p>(54, 12)(111, 9)</p>
+        </div>
+    </div>
+
+    <div class="image-container">
+        <div class="image-item">
+            <img src="./media/tobolsk.jpg" alt="Image 1">
+            <p>(3, 3)(6, 3)</p>
+        </div>
+        <div class="image-item">
+            <img src="./media/train.jpg" alt="Image 2">
+            <p>(41, 2)(85, 29)</p>
+        </div>
+    </div>
+    
+    
+</body>
+</html>
