@@ -84,7 +84,13 @@
     
     <h2>Part 2: Fun with Frequencies!</h2>
     <h3>Part 2.1: Image "Sharpening"</h3>
-    <p>图像有RGB三个通道，对于单通道图像，使用上面创造的高斯滤波器，再拼接起来，我得到了低频率的模糊图像。再使用impulse filter减去Gaussian filterUsing，得到高频率的边缘图像。为了锐化原始图像，我们只需要在原始图像中加入高频率图像，将原图像的边缘细节变清晰。此外，我们还可以将1比例的原始图像与n比例的高频图像结合，通过调节n的大小，可以得到不同程度锐化的图像(n=0的时候为原图)。</p>
+    <p>The image has three RGB channels. For a single-channel image, using the Gaussian filter created earlier and 
+        combining them, I obtained a low-frequency blurred image. Then, by using an impulse filter to subtract the 
+        Gaussian filter result, I obtained a high-frequency edge image. To sharpen the original image, we simply add 
+        the high-frequency image to the original image, making the edge details of the original image clearer. 
+        Additionally, we can combine the original image at a ratio of 1 with the high-frequency image at a ratio of 
+        n. By adjusting the value of n, we can achieve varying degrees of sharpening (when n = 0, it returns to the 
+        original image).</p>
 
     <div class="image-container">
         <div class="image-item">
@@ -93,7 +99,10 @@
         </div>
     </div>
     
-    <p>实际上，我们还可以将impulse filter minus the Gaussian filter这一过程使用一个filter表示，如下图。将锐化图像模糊后再进行锐化，图像整体仍然变得模糊，但之中出现了很多明显的线条，这是经过了两次锐化后的结果，说明锐化不能用作模糊图像修复。</p>
+    <p>In fact, we can represent the process of "impulse filter minus the Gaussian filter" using a single filter, as 
+        shown in the diagram below. When the sharpened image is blurred and then sharpened again, the overall image 
+        still becomes blurry, but many prominent lines appear. This is the result of sharpening the image twice, 
+        indicating that sharpening cannot be used for restoring blurry images.</p>
     
     <div class="image-container">
         <div class="image-item">
@@ -107,7 +116,13 @@
     <h3>Part 2.2: Hybrid Images</h3>
     <h4>Overview</h4>
         
-    <p>实现Hybrid Images的原理是通过一个图像的低频与另一个图像的高频结合，产生的图像在近距和远距下观看得到不同的结果。使用高斯滤波器提取人像的低频特征，使用Part 2.1的方法提取猫图像的高频特征，将两张图像取平均值，就能得到两者的Hybrid Image。我们还可以像Part 2.2一样调整两者的比例，决定人和猫的特征哪个更明显。当然，在这之前必须将两张图像对齐并放缩到相同大小，才能得到比较好的效果。和Part 2.2一样，对每个通道进行相同的操作，并在最后合并起来。</p>
+    <p>The principle of creating Hybrid Images is to combine the low frequencies of one image with the high frequencies 
+        of another, producing an image that appears differently when viewed up close or from a distance. By using a 
+        Gaussian filter to extract the low-frequency features of the human portrait and using the method from Part 2.1 
+        to extract the high-frequency features of the cat image, averaging the two images results in a Hybrid Image of 
+        both. We can also adjust the ratio of the two, as in Part 2.2, to determine which features—human or cat—are more 
+        prominent. Of course, before doing this, the two images must be aligned and scaled to the same size for a better 
+        effect. Similar to Part 2.2, perform the same operations on each channel and then combine them at the end.</p>
 
     <h4>Other Images</h4>
     
@@ -117,7 +132,12 @@
     <h3>Part 2.3: Gaussian and Laplacian Stacks</h3>
     <h4>Overview</h4>
 
-    <p>高斯栈指用高斯滤波器对图像反复卷积，获得一组越来越模糊的图像；而拉普拉斯栈可以从高斯栈相邻图像做差得到，最后一层与高斯栈的最后一层相同。对苹果和orange图像应用高斯栈和拉普拉斯栈，在最后一层得到十分模糊的图像，在拉普拉斯栈的中间部分，我得到了图像由细节到粗略的边缘特征。将边缘特征归一化后，使用脉冲函数将两者结合，得到以下输出。</p>
+    <p>The Gaussian stack refers to repeatedly convolving an image with a Gaussian filter to obtain a series of increasingly 
+        blurred images. The Laplacian stack can be derived by subtracting adjacent images in the Gaussian stack, with the 
+        last layer being the same as the last layer of the Gaussian stack. Applying the Gaussian and Laplacian stacks to the 
+        apple and orange images results in very blurred images in the final layer. In the middle layers of the Laplacian stack, 
+        I obtained edge features ranging from detailed to coarse. After normalizing the edge features and combining the two 
+        using an impulse function, the following output was achieved.</p>
 
     <h4>Other Images</h4>
     
@@ -137,9 +157,12 @@
 
     <h4>Overview</h4>
 
-    <p>首先，我尝试将两图像左右混合起来，将拉普拉斯栈作用在两图像上，并使用一个垂直边界的01mask，创造它的高斯栈，与图像的层数相同。每一层将两图像使用mask中的系数加权相加，得到每一层的混合图像。将每一层的图像相加，得到最后的混合图像。</p>
+    <p>First, I tried to blend the two images from left to right. I applied the Laplacian pyramid to both images and used a 
+        vertical boundary 01 mask to create a Gaussian pyramid with the same number of layers as the images. In each layer, 
+        the two images were combined by weighted addition using the coefficients from the mask, resulting in a blended image 
+        for each layer. By summing the images from all layers, I obtained the final blended image.</p>
 
-    <p>如果想以其他的方式混合图像，只需要更改mask的形式，例如：</p>
+    <p>If you want to blend images in other ways, you only need to change the form of the mask, for example:</p>
     
     <h4>Other Images</h4>
 
