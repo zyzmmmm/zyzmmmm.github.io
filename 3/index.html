@@ -1,1 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project 1</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          margin: 100px;
+      }
+      p {
+          font-size: 18px;
+      }
+      .image-container {
+          display: flex;
+          justify-content: center;
+          gap: 20px; 
+      }
+      .image-item {
+          text-align: center;
+      }
+      .image-item img {
+          max-width: 400px; 
+          height: auto;
+      }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center;">CS 180 Programming Project 3: Face Morphing</h1>
+  <h2 style="text-align: center;">Zhang Yuze</h2>
+  
+  <h2>Part 1. Defining Correspondences</h2>
+  <p>We need to select corresponding points on two facial images. I used ginput to select 46 points on the faces and 
+    used the Delaunay function from scipy.signal to obtain triangles. For all images, I need to ensure that the points 
+    are selected in the same order. To achieve higher-quality images, I select more prominent parts of the face.Below 
+    are the points I selected and the corresponding triangle template.</p>
 
+  <div class="image-container">
+      <div class="image-item">
+          <img src="./resources/raw_church.jpg" alt="Image 1">
+          <p>church.tif</p>
+      </div>
+  </div>
+
+  <hr>
+  
+  <h2>Part 2. Computing the "Mid-way Face"</h2>
+  <p>In this task, I need to simultaneously transform both shape and pixels to generate the average face of two images. 
+    The parameter n is set as the blending ratio between the two images. For the shape transformation, I used the points 
+    selected during the 'defining correspondences' step and calculated the intermediate points of the two images in the 
+    (1-n): n ratio. Then, I used the Delaunay function to generate triangles. By solving matrix equations, I obtained the 
+    transformation matrix between the triangles. I applied this matrix to transform the pixels of each triangle, and 
+    finally, I stitched the triangles together to form the complete image. For the pixel transformation, I blended the 
+    pixel values of the two images in the (1-n): n ratio to get the intermediate pixel result.</p>
+
+  <div class="image-container">
+      <div class="image-item">
+          <img src="./resources/NCC function.jpg" alt="Image 1">
+          <p>NCC</p>
+      </div>
+  </div>
+
+  
+  <div class="image-container">
+      <div class="image-item">
+          <img src="./resources/Image_pyramid.svg" alt="Image 1">
+          <p>https://en.wikipedia.org/wiki/Pyramid_(image_processing)</p>
+      </div>
+  </div>
+  
+
+  <hr>
+
+  <h2>Part 3. The Morph Sequence</h2>
+
+  <p>In the previous task, I already obtained the results of blending two facial images at different ratios. We can use warp_frac 
+    and dissolve_frac to control the blending of points and pixels, and change them over time to create a video or GIF. Specifically, 
+    by adjusting the blending parameters for each frame, we can use the mimsave function from the imageio library to generate a 
+    45-frame GIF, with each frame lasting 1/30 of a second.</p>
+
+  <hr>
+
+  <h2>Part 4. The "Mean face" of a population</h2>
+
+  <p>The process of calculating the average face is similar to Part 2, but extends from two images to multiple images. I first 
+    calculated the average of all data points, then transformed the corresponding triangles of each image to the average triangle, 
+    and averaged the pixels. By selecting a subset of images, such as male or female faces, or smiling faces, we can obtain a 
+    specific type of average face.</p>
+
+  <hr>
+
+  <h2>Part 5. Caricatures: Extrapolating from the mean</h2>
+
+  <p>By calculating the average face, I can determine the differences between my face and the average face in both shape and pixels. 
+    By amplifying these differences, I create a new image where certain features of my face are exaggerated, known as a caricature.</p>
+
+  <hr>
+
+  <h2>Bells and Whistles</h2>
+  <h3>Transition of Gender and Smile</h3>
+
+  <p>By calculating the differences in shape and pixels between different types of average faces, face transformations can be achieved. 
+    I tried converting one type of face into another, such as transforming a male face into a female face, or a calm face into a smiling face.</p>
+
+   <div class="image-container">
+      <div class="image-item">
+          <img src="./resources/emir before edge detect.jpg" alt="Image 1">
+          <p>before</p>
+      </div>
+      <div class="image-item">
+          <img src="./media/emir.jpg" alt="Image 2">
+          <p>after</p>
+      </div>
+  </div>
+  <hr>
+
+  <h3>Using PCA to Extract Feature</h3>
+
+  <p>I attempted to use PCA to project images into feature dimensions, converting them into a vector. This vector replaces the previous 
+    shape and pixels for transformation, resulting in caricatures of faces.</p>
+
+   <div class="image-container">
+      <div class="image-item">
+          <img src="./media/cathedral.jpg" alt="Image 1">
+          <p>(5, 2)(12, 3)</p>
+      </div>
+      <div class="image-item">
+          <img src="./media/church.jpg" alt="Image 2">
+          <p>(25, 4)(58, -4)</p>
+      </div>
+      <div class="image-item">
+          <img src="./media/emir.jpg" alt="Image 3">
+          <p>(49, 24)(107, 40)</p>
+      </div>
+  </div>
+
+   <div class="image-container">
+      <div class="image-item">
+          <img src="./media/harvesters.jpg" alt="Image 1">
+          <p>(60, 17)(124, 14)</p>
+      </div>
+      <div class="image-item">
+          <img src="./media/icon.jpg" alt="Image 2">
+          <p>(42, 17)(90, 23)</p>
+      </div>
+      <div class="image-item">
+          <img src="./media/lady.jpg" alt="Image 3">
+          <p>(56, 9)(120, 13)</p>
+      </div>
+  </div>
+  
+   <div class="image-container">
+      <div class="image-item">
+          <img src="./media/melons.jpg" alt="Image 1">
+          <p>(80, 10)(177, 13)</p>
+      </div>
+      <div class="image-item">
+          <img src="./media/monastery.jpg" alt="Image 2">
+          <p>(-3, 2)(3, 2)</p>
+      </div>
+      <div class="image-item">
+          <img src="./media/onion_church.jpg" alt="Image 3">
+          <p>(52, 25)(107, 35)</p>
+      </div>
+  </div>
+
+  <div class="image-container">
+      <div class="image-item">
+          <img src="./media/sculpture.jpg" alt="Image 1">
+          <p>(33, -11)(140, -26)</p>
+      </div>
+      <div class="image-item">
+          <img src="./media/self_portrait.jpg" alt="Image 2">
+          <p>(78, 29)(176, 37)</p>
+      </div>
+      <div class="image-item">
+          <img src="./media/three_generations.jpg" alt="Image 3">
+          <p>(54, 12)(111, 9)</p>
+      </div>
+  </div>
+
+  <div class="image-container">
+      <div class="image-item">
+          <img src="./media/tobolsk.jpg" alt="Image 1">
+          <p>(3, 3)(6, 3)</p>
+      </div>
+      <div class="image-item">
+          <img src="./media/train.jpg" alt="Image 2">
+          <p>(41, 2)(85, 29)</p>
+      </div>
+  </div>
+  
+  
+</body>
+</html>
