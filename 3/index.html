@@ -50,13 +50,13 @@
   <hr>
   
   <h2>Part 2. Computing the "Mid-way Face"</h2>
-  <p>In this task, I need to simultaneously transform both shape and pixels to generate the average face of two images. 
+  <p>In this task, I need to simultaneously transform both shape and color to generate the average face of two images. 
     The parameter n is set as the blending ratio between the two images. For the shape transformation, I used the points 
     selected during the 'defining correspondences' step and calculated the intermediate points of the two images in the 
     (1-n): n ratio. Then, I used the Delaunay function to generate triangles. By solving matrix equations, I obtained the 
-    transformation matrix between the triangles. I applied this matrix to transform the pixels of each triangle, and 
-    finally, I stitched the triangles together to form the complete image. For the pixel transformation, I blended the 
-    pixel values of the two images in the (1-n): n ratio to get the intermediate pixel result.</p>
+    transformation matrix between the triangles. I applied this matrix to transform the pixel of each triangle, and 
+    finally, I stitched the triangles together to form the complete image. For the color transformation, I blended the 
+    color values of the two images in the (1-n): n ratio to get the intermediate color result.</p>
 
   <div class="image-container">
       <div class="image-item">
@@ -70,7 +70,7 @@
   <h2>Part 3. The Morph Sequence</h2>
 
   <p>In the previous task, I already obtained the results of blending two facial images at different ratios. We can use warp_frac 
-    and dissolve_frac to control the blending of points and pixels, and change them over time to create a video or GIF. Specifically, 
+    and dissolve_frac to control the blending of points and colors, and change them over time to create a video or GIF. Specifically, 
     by adjusting the blending parameters for each frame, we can use the mimsave function from the imageio library to generate a 
     45-frame GIF, with each frame lasting 1/30 of a second.</p>
 
@@ -80,7 +80,7 @@
 
   <p>The process of calculating the average face is similar to Part 2, but extends from two images to multiple images. I first 
     calculated the average of all data points, then transformed the corresponding triangles of each image to the average triangle, 
-    and averaged the pixels. By selecting a subset of images, such as male or female faces, or smiling faces, we can obtain a 
+    and averaged the colors. By selecting a subset of images, such as male or female faces, or smiling faces, we can obtain a 
     specific type of average face.</p>
 
   <div class="image-container">
@@ -109,7 +109,7 @@
 
   <h2>Part 5. Caricatures: Extrapolating from the mean</h2>
 
-  <p>By calculating the average face, I can determine the differences between my face and the average face in both shape and pixels. 
+  <p>By calculating the average face, I can determine the differences between my face and the average face in both shape and color. 
     By amplifying these differences, I create a new image where certain features of my face are exaggerated, known as a caricature. 
     At first, I only amplified the shape transformation and ignored the color. </p>
 
@@ -140,7 +140,7 @@
 
   <div class="image-container">
       <div class="image-item">
-          <img src="./rsc/my_caricature=1.jpg" alt="Image 1">
+          <img src="./rsc/my_caricaturen=1.jpg" alt="Image 1">
           <p>n=1</p>
       </div>
   </div>
@@ -150,7 +150,7 @@
   <h2>Bells and Whistles</h2>
   <h3>Transition of Gender and Smile</h3>
 
-  <p>By calculating the differences in shape and pixels between different types of average faces, face transformations can be achieved. 
+  <p>By calculating the differences in shape and color between different types of average faces, face transformations can be achieved. 
     I tried converting one type of face into another, such as transforming a male face into a female face, or a calm face into a smiling face.</p>
 
    <div class="image-container">
@@ -164,7 +164,7 @@
   <h3>Using PCA to Extract Feature</h3>
 
   <p>I attempted to use PCA to project images into feature dimensions, converting them into a vector. This vector replaces the previous 
-    shape and pixels for transformation, resulting in caricatures of faces.</p>
+    shape and color for transformation, resulting in caricatures of faces.</p>
 
    <div class="image-container">
       <div class="image-item">
