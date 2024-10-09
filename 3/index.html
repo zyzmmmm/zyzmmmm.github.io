@@ -38,8 +38,12 @@
 
   <div class="image-container">
       <div class="image-item">
-          <img src="./resources/raw_church.jpg" alt="Image 1">
-          <p>church.tif</p>
+          <img src="./rsc/my face and pts.jpg" alt="Image 1">
+          <p>my face and pts</p>
+      </div>
+    <div class="image-item">
+          <img src="my face and tris.jpg" alt="Image 1">
+          <p>my face and tris</p>
       </div>
   </div>
 
@@ -56,19 +60,10 @@
 
   <div class="image-container">
       <div class="image-item">
-          <img src="./resources/NCC function.jpg" alt="Image 1">
-          <p>NCC</p>
+          <img src="mid way face.jpg" alt="Image 1">
+          <p>mid way face</p>
       </div>
   </div>
-
-  
-  <div class="image-container">
-      <div class="image-item">
-          <img src="./resources/Image_pyramid.svg" alt="Image 1">
-          <p>https://en.wikipedia.org/wiki/Pyramid_(image_processing)</p>
-      </div>
-  </div>
-  
 
   <hr>
 
@@ -88,13 +83,68 @@
     and averaged the pixels. By selecting a subset of images, such as male or female faces, or smiling faces, we can obtain a 
     specific type of average face.</p>
 
+  <div class="image-container">
+      <div class="image-item">
+          <img src="gray_men.jpg" alt="Image 1">
+          <p>calm men</p>
+      </div>
+     <div class="image-item">
+          <img src="gray_women.jpg" alt="Image 1">
+          <p>calm women</p>
+      </div>
+  </div>
+
+  <div class="image-container">
+      <div class="image-item">
+          <img src="gray_smilemen.jpg" alt="Image 1">
+          <p>smile men</p>
+      </div>
+     <div class="image-item">
+          <img src="gray_smilewomen.jpg" alt="Image 1">
+          <p>smile women</p>
+      </div>
+  </div>
+
   <hr>
 
   <h2>Part 5. Caricatures: Extrapolating from the mean</h2>
 
   <p>By calculating the average face, I can determine the differences between my face and the average face in both shape and pixels. 
-    By amplifying these differences, I create a new image where certain features of my face are exaggerated, known as a caricature.</p>
+    By amplifying these differences, I create a new image where certain features of my face are exaggerated, known as a caricature. 
+    At first, I only amplified the shape transformation and ignored the color. </p>
 
+  <div class="image-container">
+      <div class="image-item">
+          <img src="my_caricature_shapen=0.5.jpg" alt="Image 1">
+          <p>n=0.5</p>
+      </div>
+    <div class="image-item">
+          <img src="my_caricature_shapen=1.jpg" alt="Image 1">
+          <p>n=1</p>
+      </div>
+  </div>
+
+  <div class="image-container">
+      <div class="image-item">
+          <img src="my_caricature_shapen=1.5.jpg" alt="Image 1">
+          <p>n=1.5</p>
+      </div>
+    <div class="image-item">
+          <img src="my_caricature_shapen=2.jpg" alt="Image 1">
+          <p>n=2</p>
+      </div>
+  </div>
+
+  Then, I amplified both shape and color, but even though I had already scaled my image's colors to match the average face, the result 
+  got worse. This might be due to local color differences being exaggerated, resulting in black and white areas in the image.
+
+  <div class="image-container">
+      <div class="image-item">
+          <img src="my_caricature=1.jpg" alt="Image 1">
+          <p>n=1</p>
+      </div>
+  </div>
+  
   <hr>
 
   <h2>Bells and Whistles</h2>
@@ -105,8 +155,8 @@
 
    <div class="image-container">
       <div class="image-item">
-          <img src="./resources/emir before edge detect.jpg" alt="Image 1">
-          <p>before</p>
+          <img src="my_img.jpg" alt="Image 1">
+          <p>original</p>
       </div>
       <div class="image-item">
           <img src="./media/emir.jpg" alt="Image 2">
@@ -122,72 +172,23 @@
 
    <div class="image-container">
       <div class="image-item">
-          <img src="./media/cathedral.jpg" alt="Image 1">
-          <p>(5, 2)(12, 3)</p>
+          <img src="my_img.jpg" alt="Image 1">
+          <p>original</p>
       </div>
       <div class="image-item">
-          <img src="./media/church.jpg" alt="Image 2">
-          <p>(25, 4)(58, -4)</p>
-      </div>
-      <div class="image-item">
-          <img src="./media/emir.jpg" alt="Image 3">
-          <p>(49, 24)(107, 40)</p>
+          <img src="PCA_n=20.jpg" alt="Image 2">
+          <p>PCA n=20</p>
       </div>
   </div>
 
    <div class="image-container">
       <div class="image-item">
-          <img src="./media/harvesters.jpg" alt="Image 1">
-          <p>(60, 17)(124, 14)</p>
+          <img src="PCA_n=40.jpg" alt="Image 2">
+          <p>PCA n=40</p>
       </div>
       <div class="image-item">
-          <img src="./media/icon.jpg" alt="Image 2">
-          <p>(42, 17)(90, 23)</p>
-      </div>
-      <div class="image-item">
-          <img src="./media/lady.jpg" alt="Image 3">
-          <p>(56, 9)(120, 13)</p>
-      </div>
-  </div>
-  
-   <div class="image-container">
-      <div class="image-item">
-          <img src="./media/melons.jpg" alt="Image 1">
-          <p>(80, 10)(177, 13)</p>
-      </div>
-      <div class="image-item">
-          <img src="./media/monastery.jpg" alt="Image 2">
-          <p>(-3, 2)(3, 2)</p>
-      </div>
-      <div class="image-item">
-          <img src="./media/onion_church.jpg" alt="Image 3">
-          <p>(52, 25)(107, 35)</p>
-      </div>
-  </div>
-
-  <div class="image-container">
-      <div class="image-item">
-          <img src="./media/sculpture.jpg" alt="Image 1">
-          <p>(33, -11)(140, -26)</p>
-      </div>
-      <div class="image-item">
-          <img src="./media/self_portrait.jpg" alt="Image 2">
-          <p>(78, 29)(176, 37)</p>
-      </div>
-      <div class="image-item">
-          <img src="./media/three_generations.jpg" alt="Image 3">
-          <p>(54, 12)(111, 9)</p>
-      </div>
-  </div>
-
-  <div class="image-container">
-      <div class="image-item">
-          <img src="./media/tobolsk.jpg" alt="Image 1">
-          <p>(3, 3)(6, 3)</p>
-      </div>
-      <div class="image-item">
-          <img src="./media/train.jpg" alt="Image 2">
-          <p>(41, 2)(85, 29)</p>
+          <img src"PCA_n=60.jpg" alt="Image 3">
+          <p>PCA n=60</p>
       </div>
   </div>
   
