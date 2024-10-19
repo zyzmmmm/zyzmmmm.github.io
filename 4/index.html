@@ -41,4 +41,93 @@
             width: 100%;
             height: 300px;
             background-color: #eaeaea;
-            
+            border: 2px dashed #ccc;
+            margin: 10px 0;
+            text-align: center;
+            line-height: 300px;
+            color: #999;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Image Stitching Project</h1>
+    <h2>Name: Your Name</h2>
+
+    <div class="section">
+        <h2>1. Shoot the Pictures</h2>
+        <h3>Steps:</h3>
+        <ul>
+            <li>Avoid fisheye lenses and significant barrel distortion (ensure straight lines remain straight).</li>
+            <li>Shoot as closely in time as possible to avoid moving subjects and lighting changes.</li>
+            <li>Ensure significant overlap (40% to 70%) between adjacent images.</li>
+            <li>It’s okay to vary the zoom (focal length) between pictures.</li>
+            <li>Choose scenes with rich details.</li>
+        </ul>
+        <div class="image-placeholder">Example of Photos</div>
+    </div>
+
+    <div class="section">
+        <h2>2. Recover Homographies</h2>
+        <h3>Steps:</h3>
+        <ul>
+            <li>Calculate the homography matrix using corresponding points.</li>
+            <li>Write the function computeH(im1_pts, im2_pts) to compute the matrix.</li>
+            <li>Provide more than 4 points to ensure an overdetermined system, and solve using least squares.</li>
+        </ul>
+        <div class="image-placeholder">Example of Corresponding Points</div>
+    </div>
+
+    <div class="section">
+        <h2>3. Warp the Images</h2>
+        <h3>Steps:</h3>
+        <ul>
+            <li>Use the computed homography to warp each image.</li>
+            <li>Write the function warpImage(im, H) to implement the image warping.</li>
+        </ul>
+        <div class="image-placeholder">Example of Warped Images</div>
+    </div>
+
+    <div class="section">
+        <h2>4. Image Rectification</h2>
+        <h3>Steps:</h3>
+        <ul>
+            <li>Select a known rectangular object and compute the homography for rectification.</li>
+        </ul>
+        <div class="image-placeholder">Example of Rectification</div>
+    </div>
+
+    <div class="section">
+        <h2>5. Create a Mosaic Image</h2>
+        <h3>Steps:</h3>
+        <ul>
+            <li>Warp all images and stitch them together.</li>
+            <li>Use weighted averaging or Laplacian pyramid techniques to blend the images.</li>
+        </ul>
+        <div class="image-placeholder">Example of Mosaic</div>
+    </div>
+
+    <div class="section">
+        <h2>6. Submit Your Results</h2>
+        <h3>Steps:</h3>
+        <ul>
+            <li>Submit all your code and the webpage.</li>
+            <li>Include a README file describing the purpose of each function.</li>
+        </ul>
+        <div class="image-placeholder">Example of Submission</div>
+    </div>
+
+    <div class="section">
+        <h2>7. Bells & Whistles</h2>
+        <h3>Steps:</h3>
+        <ul>
+            <li>Try using spherical, cylindrical, or other mappings.</li>
+            <li>Implement a 360-degree cylindrical panorama.</li>
+            <li>Consider using video data to create mosaics.</li>
+        </ul>
+        <div class="image-placeholder">Example of Extra Challenges</div>
+    </div>
+
+</body>
+
+</html>
