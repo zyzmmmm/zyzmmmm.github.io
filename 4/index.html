@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>图像拼接项目</title>
+    <title>Image Stitching Project</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -41,93 +41,4 @@
             width: 100%;
             height: 300px;
             background-color: #eaeaea;
-            border: 2px dashed #ccc;
-            margin: 10px 0;
-            text-align: center;
-            line-height: 300px;
-            color: #999;
-        }
-    </style>
-</head>
-
-<body>
-    <h1>图像拼接项目</h1>
-    <h2>姓名：您的姓名</h2>
-
-    <div class="section">
-        <h2>1. 拍摄照片</h2>
-        <h3>步骤：</h3>
-        <ul>
-            <li>使用非鱼眼镜头，确保直线保持直线，避免镜头畸变。</li>
-            <li>尽可能短时间内拍摄，避免拍摄对象移动和光照变化。</li>
-            <li>确保相邻图像之间有40%-70%的重叠。</li>
-            <li>可以变换变焦，但应尽量保持焦距一致。</li>
-            <li>选择丰富细节的场景。</li>
-        </ul>
-        <div class="image-placeholder">照片示例</div>
-    </div>
-
-    <div class="section">
-        <h2>2. 恢复单应性（Homographies）</h2>
-        <h3>步骤：</h3>
-        <ul>
-            <li>使用对应点计算单应性矩阵。</li>
-            <li>编写函数 computeH(im1_pts, im2_pts) 计算矩阵。</li>
-            <li>使用超过4个点以确保系统超定，进行最小二乘法求解。</li>
-        </ul>
-        <div class="image-placeholder">对应点示例</div>
-    </div>
-
-    <div class="section">
-        <h2>3. 图像变换</h2>
-        <h3>步骤：</h3>
-        <ul>
-            <li>使用计算出的单应性矩阵进行图像变换。</li>
-            <li>编写函数 warpImage(im, H) 来实现图像变换。</li>
-        </ul>
-        <div class="image-placeholder">图像变换示例</div>
-    </div>
-
-    <div class="section">
-        <h2>4. 图像校正</h2>
-        <h3>步骤：</h3>
-        <ul>
-            <li>选择已知的矩形对象并计算单应性进行校正。</li>
-        </ul>
-        <div class="image-placeholder">校正示例</div>
-    </div>
-
-    <div class="section">
-        <h2>5. 创建马赛克图像</h2>
-        <h3>步骤：</h3>
-        <ul>
-            <li>将所有图像变换并拼接在一起。</li>
-            <li>使用加权平均或拉普拉斯金字塔技术融合图像。</li>
-        </ul>
-        <div class="image-placeholder">马赛克示例</div>
-    </div>
-
-    <div class="section">
-        <h2>6. 提交结果</h2>
-        <h3>步骤：</h3>
-        <ul>
-            <li>提交所有代码和网页。</li>
-            <li>包含说明文件，描述各个函数的作用。</li>
-        </ul>
-        <div class="image-placeholder">提交示例</div>
-    </div>
-
-    <div class="section">
-        <h2>7. 额外挑战（Bells & Whistles）</h2>
-        <h3>步骤：</h3>
-        <ul>
-            <li>尝试使用球形、圆柱或其他映射。</li>
-            <li>实现360度圆柱全景。</li>
-            <li>考虑使用视频数据创建马赛克。</li>
-        </ul>
-        <div class="image-placeholder">额外挑战示例</div>
-    </div>
-
-</body>
-
-</html>
+            
