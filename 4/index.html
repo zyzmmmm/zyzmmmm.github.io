@@ -1,12 +1,10 @@
-html
-复制代码
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Stitching Project</title>
+    <title>Image Stitching Project Report</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -53,49 +51,61 @@ html
 </head>
 
 <body>
-    <h1>Image Stitching Project</h1>
+    <h1>Image Stitching Project Report</h1>
     <h2>Name: Your Name</h2>
 
     <div class="section">
-        <h2>1. Shoot the Pictures</h2>
-        <p>To begin your project, it’s essential to capture multiple photographs with a focus on keeping the center of projection fixed. This often involves rotating your camera while taking the pictures to maintain perspective. Avoid using fisheye or lenses with significant barrel distortion, as they can warp straight lines. Instead, opt for a wide-angle lens to create more engaging mosaics.</p>
-        <p>When taking the pictures, aim to shoot them closely in time to minimize changes in lighting and subject movement. Ensure there is a significant overlap—ideally between 40% and 70%—between adjacent images to facilitate easier stitching. It is also acceptable to adjust the zoom between shots, and consider capturing scenes that contain rich details for better results.</p>
+        <h2>1. Shooting the Pictures</h2>
+        <p>To initiate my project, I captured multiple photographs while keeping the center of projection fixed. This involved rotating 
+            my camera to maintain perspective. I avoided fisheye or lenses with significant barrel distortion, as they can warp straight 
+            lines, and opted for a wide-angle lens to create more engaging mosaics.</p>
+        <p>When taking the pictures, I made sure to shoot them closely in time to minimize changes in lighting and subject movement. I 
+            ensured there was a significant overlap—between 40% and 70%—between adjacent images to facilitate easier stitching. It was 
+            acceptable to adjust the zoom between shots, and I focused on capturing scenes rich in detail for better results.</p>
         <div class="image-placeholder">Example of Photos</div>
     </div>
 
     <div class="section">
-        <h2>2. Recover Homographies</h2>
-        <p>Once the images are captured, the next step is to compute the homography, which defines the transformation between pairs of images. This is done using corresponding points from the two images, where you need to write a function, <code>computeH(im1_pts, im2_pts)</code>, that calculates the 3x3 homography matrix. To achieve a stable and accurate transformation, it’s crucial to gather more than four corresponding points, allowing you to form an overdetermined system of equations, which can then be solved using least squares.</p>
+        <h2>2. Recovering Homographies</h2>
+        <p>After capturing the images, the next step was to compute the homography that defines the transformation between pairs of 
+            images. I gathered corresponding points from the two images and wrote a function, <code>computeH(im1_pts, im2_pts)</code>, 
+            to calculate the 3x3 homography matrix. To achieve a stable and accurate transformation, I ensured to gather more than four 
+            corresponding points, forming an overdetermined system of equations that I solved using least squares.</p>
         <div class="image-placeholder">Example of Corresponding Points</div>
     </div>
 
     <div class="section">
-        <h2>3. Warp the Images</h2>
-        <p>With the homography matrix calculated, you can proceed to warp the images. Create a function called <code>warpImage(im, H)</code> that applies this matrix to warp each image into alignment with the reference image. You can choose to utilize either forward or inverse warping methods, but keep in mind the need to prevent aliasing during the resampling process. It's beneficial to employ techniques like <code>scipy.interpolate.griddata</code> to handle this efficiently, focusing on vectorized implementations without explicit loops.</p>
+        <h2>3. Warping the Images</h2>
+        <p>With the homography matrix calculated, I proceeded to warp the images. I created a function called <code>warpImage(im, H)</code> 
+            that applied this matrix to warp each image into alignment with the reference image. I chose to utilize inverse warping to prevent 
+            aliasing during the resampling process, employing techniques like <code>scipy.interpolate.griddata</code> to handle this 
+            efficiently, focusing on vectorized implementations without explicit loops.</p>
         <div class="image-placeholder">Example of Warped Images</div>
     </div>
 
     <div class="section">
         <h2>4. Image Rectification</h2>
-        <p>After validating the warping process, the next task is image rectification. This involves taking a photograph of a known rectangular object—like a painting or a poster—and computing the homography that transforms it into a perfectly rectangular shape. This step is crucial for testing and ensuring that your homography and warping methods are functioning correctly. For example, you can select the corners of a tile in the image to create the required correspondences.</p>
+        <p>After validating the warping process, I tackled image rectification. This involved taking a photograph of a known rectangular 
+            object, such as a painting, and computing the homography that transforms it into a perfectly rectangular shape. This step was 
+            crucial for testing and ensuring that my homography and warping methods were functioning correctly. For instance, I selected the 
+            corners of a tile in the image to create the required correspondences.</p>
         <div class="image-placeholder">Example of Rectification</div>
     </div>
 
     <div class="section">
-        <h2>5. Create a Mosaic Image</h2>
-        <p>Now that the images are aligned, the next step is to create a mosaic. You can either warp all images into a new projection or gradually add them one by one. If you decide to use a single warp for all images, calculate the final mosaic size beforehand. Then, blend the images using techniques like weighted averaging or Laplacian pyramid blending to produce a seamless composite image. This helps to minimize any artifacts that arise from direct image overlaps.</p>
+        <h2>5. Creating a Mosaic Image</h2>
+        <p>With the images aligned, I moved on to create a mosaic. I opted to warp all images into a new projection, gradually adding them one 
+            by one. I calculated the final mosaic size beforehand and blended the images using techniques like weighted averaging or Laplacian 
+            pyramid blending to produce a seamless composite image. This approach helped minimize any artifacts that arose from direct image overlaps.</p>
         <div class="image-placeholder">Example of Mosaic</div>
     </div>
 
     <div class="section">
-        <h2>6. Submit Your Results</h2>
-        <p>Finally, compile all your code and prepare for submission. Ensure that you include a comprehensive README file that describes the purpose and functionality of each function. This will help others understand your work and the steps you took in completing the project. Make sure to showcase your final results through this documentation.</p>
-        <div class="image-placeholder">Example of Submission</div>
-    </div>
-
-    <div class="section">
-        <h2>7. Bells & Whistles</h2>
-        <p>To enhance your project, consider exploring additional techniques such as spherical or cylindrical mappings. These methods can be particularly useful for wide mosaics, as they offer a more appropriate representation than planar projections. Furthermore, you might experiment with creating a 360-degree cylindrical panorama by stitching images together while using translation only. Lastly, consider working with video data to generate dynamic mosaics.</p>
+        <h2>6. Bells & Whistles</h2>
+        <p>To enhance my project, I explored additional techniques such as spherical or cylindrical mappings. These methods proved useful for 
+            wide mosaics, offering a more appropriate representation than planar projections. I also experimented with creating a 360-degree 
+            cylindrical panorama by stitching images together while using translation only. Lastly, I considered working with video data to 
+            generate dynamic mosaics.</p>
         <div class="image-placeholder">Example of Extra Challenges</div>
     </div>
 
