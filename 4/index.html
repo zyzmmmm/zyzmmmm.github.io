@@ -62,7 +62,6 @@
         <p>When taking the pictures, I made sure to shoot them closely in time to minimize changes in lighting and subject movement. I 
             ensured there was a significant overlap—between 40% and 70%—between adjacent images to facilitate easier stitching. It was 
             acceptable to adjust the zoom between shots, and I focused on capturing scenes rich in detail for better results.</p>
-        <div class="image-placeholder">Example of Photos</div>
         <div class="image-container">
             <div class="image-item">
                 <img src="./media/im1.jpg" alt="Image 1">
@@ -86,7 +85,6 @@
             images. I gathered corresponding points from the two images and wrote a function, <code>computeH(im1_pts, im2_pts)</code>, 
             to calculate the 3x3 homography matrix. To achieve a stable and accurate transformation, I ensured to gather more than four 
             corresponding points, forming an overdetermined system of equations that I solved using least squares.</p>
-        <div class="image-placeholder">Example of Corresponding Points</div>
         <div class="image-container">
             <div class="image-item">
                 <img src="./media/H.jpg" alt="Image 1">
@@ -102,7 +100,6 @@
             that applied this matrix to warp each image into alignment with the reference image. I chose to utilize inverse warping to prevent 
             aliasing during the resampling process, employing techniques like <code>scipy.ndimage.map_coordinates</code> to handle this 
             efficiently, focusing on vectorized implementations without explicit loops.</p>
-        <div class="image-placeholder">Example of Warped Images</div>
         <div class="image-container">
             <div class="image-item">
                 <img src="./media/warp_im.jpg" alt="Image 1">
@@ -116,7 +113,6 @@
         <p>After validating the warping process, I tackled image rectification. This involved taking a photograph of a known rectangular 
             object, such as a painting, and computing the homography that transforms it into a perfectly rectangular shape. This step was 
             crucial for testing and ensuring that my homography and warping methods were functioning correctly.</p>
-        <div class="image-placeholder">Example of Rectification</div>
         <div class="image-container">
             <div class="image-item">
                 <img src="./media/floor.jpg" alt="Image 1">
@@ -135,8 +131,8 @@
             by one. I calculated the final mosaic size beforehand and blended the images using techniques like weighted averaging or Laplacian 
             pyramid blending to produce a seamless composite image. This approach helped minimize any artifacts that arose from direct image overlaps. 
             Initially, I added a mask to the valid parts of each image, setting the pixel values to the original in the center and to 0 at the edges. 
-            However, no matter how I choose the mask, the output image is always very bright or very dark in some areas. Below are the masks and the generated blended image.</p>
-        <div class="image-placeholder">Example of Mosaic</div>
+            However, no matter how I choose the mask, the output image is always very bright or very dark in some areas. Below are the masks and the 
+            generated blended image.</p>
         <div class="image-container">
             <div class="image-item">
                 <img src="./media/mask.jpg" alt="Image 1">
@@ -160,7 +156,12 @@
         <h2>6. Bells & Whistles</h2>
         <p>To further enhance the effect, I projected the original coordinates onto cylindrical coordinates. To achieve this, I only needed 
             to use the <code>scipy.ndimage.map_coordinates</code> function to project the transformed images onto the cylinder, resulting in the following:</p>
-        <div class="image-placeholder">Example of Extra Challenges</div>
+        <div class="image-container">
+            <div class="image-item">im
+                <img src="./media/cylinder_im.jpg" alt="Image 1">
+                <p>blend image</p>
+            </div>
+        </div>
     </div>
 
 </body>
