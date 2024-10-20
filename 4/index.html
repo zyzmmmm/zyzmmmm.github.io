@@ -78,7 +78,7 @@
         <h2>3. Warping the Images</h2>
         <p>With the homography matrix calculated, I proceeded to warp the images. I created a function called <code>warpImage(im, H)</code> 
             that applied this matrix to warp each image into alignment with the reference image. I chose to utilize inverse warping to prevent 
-            aliasing during the resampling process, employing techniques like <code>scipy.interpolate.griddata</code> to handle this 
+            aliasing during the resampling process, employing techniques like <code>scipy.ndimage.map_coordinates</code> to handle this 
             efficiently, focusing on vectorized implementations without explicit loops.</p>
         <div class="image-placeholder">Example of Warped Images</div>
     </div>
@@ -87,8 +87,7 @@
         <h2>4. Image Rectification</h2>
         <p>After validating the warping process, I tackled image rectification. This involved taking a photograph of a known rectangular 
             object, such as a painting, and computing the homography that transforms it into a perfectly rectangular shape. This step was 
-            crucial for testing and ensuring that my homography and warping methods were functioning correctly. For instance, I selected the 
-            corners of a tile in the image to create the required correspondences.</p>
+            crucial for testing and ensuring that my homography and warping methods were functioning correctly.</p>
         <div class="image-placeholder">Example of Rectification</div>
     </div>
 
