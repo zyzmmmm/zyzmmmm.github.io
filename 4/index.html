@@ -135,7 +135,7 @@
             by one. I calculated the final mosaic size beforehand and blended the images using techniques like weighted averaging or Laplacian 
             pyramid blending to produce a seamless composite image. This approach helped minimize any artifacts that arose from direct image overlaps. 
             Initially, I added a mask to the valid parts of each image, setting the pixel values to the original in the center and to 0 at the edges. 
-            However, this resulted in overly bright areas. Below are the masks and the generated blended image.</p>
+            However, no matter how I choose the mask, the output image is always very bright or very dark in some areas. Below are the masks and the generated blended image.</p>
         <div class="image-placeholder">Example of Mosaic</div>
         <div class="image-container">
             <div class="image-item">
