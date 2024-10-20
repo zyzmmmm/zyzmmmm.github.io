@@ -63,6 +63,21 @@
             ensured there was a significant overlap—between 40% and 70%—between adjacent images to facilitate easier stitching. It was 
             acceptable to adjust the zoom between shots, and I focused on capturing scenes rich in detail for better results.</p>
         <div class="image-placeholder">Example of Photos</div>
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./rsc/im1.jpg" alt="Image 1">
+                <p>im1</p>
+            </div>
+        <div class="image-item">
+                <img src="./rsc/im2.jpg" alt="Image 1">
+                <p>im2</p>
+            </div>
+        </div>
+        <div class="image-item">
+                <img src="./rsc/im3.jpg" alt="Image 1">
+                <p>im3</p>
+            </div>
+        </div>
     </div>
 
     <div class="section">
@@ -72,6 +87,13 @@
             to calculate the 3x3 homography matrix. To achieve a stable and accurate transformation, I ensured to gather more than four 
             corresponding points, forming an overdetermined system of equations that I solved using least squares.</p>
         <div class="image-placeholder">Example of Corresponding Points</div>
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./rsc/H.jpg" alt="Image 1">
+                <p>compute H</p>
+            </div>
+        </div>
+        
     </div>
 
     <div class="section">
@@ -81,6 +103,12 @@
             aliasing during the resampling process, employing techniques like <code>scipy.ndimage.map_coordinates</code> to handle this 
             efficiently, focusing on vectorized implementations without explicit loops.</p>
         <div class="image-placeholder">Example of Warped Images</div>
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./rsc/warp_im.jpg" alt="Image 1">
+                <p>warp image</p>
+            </div>
+        </div>
     </div>
 
     <div class="section">
@@ -89,22 +117,49 @@
             object, such as a painting, and computing the homography that transforms it into a perfectly rectangular shape. This step was 
             crucial for testing and ensuring that my homography and warping methods were functioning correctly.</p>
         <div class="image-placeholder">Example of Rectification</div>
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./rsc/floor.jpg" alt="Image 1">
+                <p>original image</p>
+            </div>
+            <div class="image-item">
+                <img src="./rsc/rec_im.jpg" alt="Image 1">
+                <p>rec image</p>
+            </div>
+        </div>
     </div>
 
     <div class="section">
         <h2>5. Creating a Mosaic Image</h2>
         <p>With the images aligned, I moved on to create a mosaic. I opted to warp all images into a new projection, gradually adding them one 
             by one. I calculated the final mosaic size beforehand and blended the images using techniques like weighted averaging or Laplacian 
-            pyramid blending to produce a seamless composite image. This approach helped minimize any artifacts that arose from direct image overlaps.</p>
+            pyramid blending to produce a seamless composite image. This approach helped minimize any artifacts that arose from direct image overlaps. 
+            Initially, I added a mask to the valid parts of each image, setting the pixel values to the original in the center and to 0 at the edges. 
+            However, this resulted in overly bright areas. Below are the masks and the generated blended image.</p>
         <div class="image-placeholder">Example of Mosaic</div>
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./rsc/mask.jpg" alt="Image 1">
+                <p>mask</p>
+            </div>
+            <div class="image-item">
+                <img src="./rsc/mask_blend.jpg" alt="Image 1">
+                <p>blend image</p>
+            </div>
+        </div>
+        <p>Then I used Laplacian pyramid blending for the images and found that the results were significantly better than before.</p>
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./rsc/laplacian_blend.jpg" alt="Image 1">
+                <p>blend image</p>
+            </div>
+        </div>
     </div>
 
     <div class="section">
         <h2>6. Bells & Whistles</h2>
-        <p>To enhance my project, I explored additional techniques such as spherical or cylindrical mappings. These methods proved useful for 
-            wide mosaics, offering a more appropriate representation than planar projections. I also experimented with creating a 360-degree 
-            cylindrical panorama by stitching images together while using translation only. Lastly, I considered working with video data to 
-            generate dynamic mosaics.</p>
+        <p>To further enhance the effect, I projected the original coordinates onto cylindrical coordinates. To achieve this, I only needed 
+            to use the <code>scipy.ndimage.map_coordinates</code> function to project the transformed images onto the cylinder, resulting in the following:</p>
         <div class="image-placeholder">Example of Extra Challenges</div>
     </div>
 
