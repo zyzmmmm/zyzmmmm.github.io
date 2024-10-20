@@ -6,6 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project 4</title>
     <style>
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 20px;
+        }
+    
+        .image-item {
+            text-align: center;
+            margin: 10px
+        }
+    
+        img {
+            max-width: 100%; 
+            height: auto; 
+        }
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -102,7 +119,7 @@
             efficiently, focusing on vectorized implementations without explicit loops.</p>
         <div class="image-container">
             <div class="image-item">
-                <img src="./media/warp_im.jpg" alt="Image 1">
+                <img src="./media/warp_im.jpg" alt="Image 1" width="50%" height="auto">
                 <p>warp image</p>
             </div>
         </div>
