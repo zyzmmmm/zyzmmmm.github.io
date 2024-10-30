@@ -221,8 +221,11 @@
 
     <div class="section">
         <h2>Harris Corners Detection</h2>
-        <p>The project aims to develop a system that can automatically stitch images into a mosaic. The process involves several key steps, including harris corners detection, 
-            descriptor extraction, feature matching with RANSAC algorithm, and the final mosaic creation.</p>
+        <p>The process of selecting effective Harris corners is divided into two steps. First, implement the function get_harris_corners to detect 
+            Harris corners in a given black-and-white image. From all detected Harris corners, select the most representative points by calculating 
+            their relative significance, which is based on the Harris response values and the distances between them. When making these calculations, 
+            consider both the distances and intensities of the corners to ensure that the returned corners are distributed more evenly across the 
+            image, making them suitable for subsequent feature matching and image processing tasks.</p>
     </div>
 
     <div class="section">
