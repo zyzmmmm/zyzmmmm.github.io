@@ -66,6 +66,7 @@
     <h1 style="text-align: center;">Project 4: IMAGE WARPING and MOSAICING</h1>
     <h2 style="text-align: center;">Yuze Zhang</h2>
 
+    <h2>First Part</h2>
     <div class="section">
         <h2>Overview</h2>
         <p>The goal of this project is to create a seamless mosaic image by stitching together multiple photographs taken from slightly 
@@ -211,6 +212,40 @@
         </div>
     </div>
 
+    <h2>Final Parrt</h2>
+    <div class="section">
+        <h2>Overview</h2>
+        <p>The project aims to develop a system that can automatically stitch images into a mosaic. The process involves several key steps, including 
+            harris corners detection, descriptor extraction, feature matching with RANSAC algorithm, and the final mosaic creation.</p>
+    </div>
+
+    <div class="section">
+        <h2>Harris Corners Detection</h2>
+        <p>The project aims to develop a system that can automatically stitch images into a mosaic. The process involves several key steps, including harris corners detection, 
+            descriptor extraction, feature matching with RANSAC algorithm, and the final mosaic creation.</p>
+    </div>
+
+    <div class="section">
+        <h2>Feature Descriptor Extraction</h2>
+        <p></p>
+    </div>
+
+    <div class="section">
+        <h2>Homography Estimation using RANSAC</h2>
+        <p>Use the RANSAC algorithm to robustly compute the homography matrix from the matched feature points. This step involves selecting random 
+            sets of four points from the matches and estimating the homography, then checking how many points fit this model (inliers). Repeat this 
+            process multiple times to ensure a reliable estimate, filtering out outliers to enhance the stitching accuracy.
+            Develop a function that finds matches between two sets of feature descriptors. For each 
+            descriptor in the first set, calculate distances to all descriptors in the second set, apply Lowe’s ratio test to filter out weak 
+            matches, and return a list of matched index pairs.</p>
+    </div>
+
+    <div class="section">
+        <h2>Result</h2>
+        <p>Combine the transformed images using the computed homography to create a seamless mosaic. This involves warping the images according to the 
+            homography and blending them together.</p>
+    </div>
+    
 </body>
 
 </html>
