@@ -226,12 +226,28 @@
             their relative significance, which is based on the Harris response values and the distances between them. When making these calculations, 
             consider both the distances and intensities of the corners to ensure that the returned corners are distributed more evenly across the 
             image, making them suitable for subsequent feature matching and image processing tasks.</p>
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/harris_corners.jpg" alt="Image 1" width="60%" height="auto">
+                <p>mask</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/selected_corners.jpg" alt="Image 1" width="60%" height="auto">
+                <p>blend image</p>
+            </div>
+        </div>
     </div>
 
     <div class="section">
         <h2>Feature Descriptor Extraction</h2>
         <p> We will implement a function that takes the original image and the list of detected corners. For each corner, extract a 20x20 patch, 
             sample an 8x8 sub-patch, and normalize the resulting descriptor using bias and gain normalization techniques to ensure consistency.</p>
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/descriptor_extraction.jpg" alt="Image 1" width="60%" height="auto">
+                <p>mask</p>
+            </div>
+        </div>
     </div>
 
     <div class="section">
@@ -242,6 +258,16 @@
             Develop a function that finds matches between two sets of feature descriptors. For each 
             descriptor in the first set, calculate distances to all descriptors in the second set, apply Lowe’s ratio test to filter out weak 
             matches, and return a list of matched index pairs.</p>
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/feature_matching1.jpg" alt="Image 1" width="60%" height="auto">
+                <p>mask</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/feature_matching2.jpg" alt="Image 1" width="60%" height="auto">
+                <p>blend image</p>
+            </div>
+        </div>
     </div>
 
     <div class="section">
@@ -249,6 +275,40 @@
         <p>Combine the transformed images using the computed homography to create a seamless mosaic. This involves warping the images according to the 
             homography and blending them together. Compared to the previous results, the mosaic created using the Harris corners automatic alignment 
             method has clearer overlaps in the images, and it does not exhibit highlights or strange wedge-like artifacts in other areas.</p>
+        
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/mosaic1.jpg" alt="Image 1" width="60%" height="auto">
+                <p>mask</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/automatic mosaic1.jpg" alt="Image 1" width="60%" height="auto">
+                <p>blend image</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/mosaic2.jpg" alt="Image 1" width="60%" height="auto">
+                <p>mask</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/automatic mosaic2.jpg" alt="Image 1" width="60%" height="auto">
+                <p>blend image</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/mosaic3.jpg" alt="Image 1" width="60%" height="auto">
+                <p>mask</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/automatic mosaic3.jpg" alt="Image 1" width="60%" height="auto">
+                <p>blend image</p>
+            </div>
+        </div>
+        
     </div>
     
 </body>
