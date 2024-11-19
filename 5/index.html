@@ -19,257 +19,255 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header class="text-center mb-5">
-            <h1>Diffusion Models Project</h1>
-            <p class="lead">CS180: Introduction to Computer Vision and Computational Photography</p>
-        </header>
-        <h2 style="text-align: center;"> Part A</h2>
-        <!-- Part 0 -->
-        <section>
-            <h2 class="section-title">Part 0: Single-Step Denoising UNet</h2>
-            <p><strong>Objective:</strong> Train a UNet for single-step denoising using MNIST dataset.</p>
-            <p></p>
+    <!-- Header -->
+    <header class="text-center mb-5">
+        <h1>Diffusion Models Project</h1>
+        <p class="lead">CS180: Introduction to Computer Vision and Computational Photography</p>
+    </header>
+    <h2 style="text-align: center;"> Part A</h2>
+    <!-- Part 0 -->
+    <div class="section">
+        <h2 class="section-title">Part 0: Single-Step Denoising UNet</h2>
+        <p><strong>Objective:</strong> Train a UNet for single-step denoising using MNIST dataset.</p>
+        <p></p>
 
-            <h3>Test Set Results</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <h4>After 1 Epoch</h4>
-                    <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
-                </div>
-                <div class="col-md-6">
-                    <h4>After 5 Epochs</h4>
-                    <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
-                </div>
+        <h3>Test Set Results</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>After 1 Epoch</h4>
+                <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
             </div>
-        </section>
-
-        <!-- Part 1 -->
-        <section>
-            <h2 class="section-title">Part 1: Single-Step Denoising UNet</h2>
-            <p><strong>Objective:</strong> Train a UNet for single-step denoising using MNIST dataset.</p>
-            <p></p>
-
-            <h3>1.1 Implementing the Forward Process</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <h4>After 1 Epoch</h4>
-                    <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
-                </div>
-                <div class="col-md-6">
-                    <h4>After 5 Epochs</h4>
-                    <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
-                </div>
+            <div class="col-md-6">
+                <h4>After 5 Epochs</h4>
+                <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
             </div>
+        </div>
+    </div>
 
-            <h3>1.2 Classical Denoising</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <h4>After 1 Epoch</h4>
-                    <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
-                </div>
-                <div class="col-md-6">
-                    <h4>After 5 Epochs</h4>
-                    <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
-                </div>
+    <!-- Part 1 -->
+    <div class="section">
+        <h2 class="section-title">Part 1: Single-Step Denoising UNet</h2>
+        <p><strong>Objective:</strong> Train a UNet for single-step denoising using MNIST dataset.</p>
+        <p></p>
+
+        <h3>1.1 Implementing the Forward Process</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>After 1 Epoch</h4>
+                <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
             </div>
-
-            <h3>1.3 One-Step Denoising</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <h4>After 1 Epoch</h4>
-                    <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
-                </div>
-                <div class="col-md-6">
-                    <h4>After 5 Epochs</h4>
-                    <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
-                </div>
+            <div class="col-md-6">
+                <h4>After 5 Epochs</h4>
+                <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
             </div>
+        </div>
 
-            <h3>1.4 Iterative Denoising</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <h4>After 1 Epoch</h4>
-                    <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
-                </div>
-                <div class="col-md-6">
-                    <h4>After 5 Epochs</h4>
-                    <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
-                </div>
+        <h3>1.2 Classical Denoising</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>After 1 Epoch</h4>
+                <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
             </div>
-
-            <h3>1.5 Diffusion Model Sampling</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <h4>After 1 Epoch</h4>
-                    <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
-                </div>
-                <div class="col-md-6">
-                    <h4>After 5 Epochs</h4>
-                    <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
-                </div>
+            <div class="col-md-6">
+                <h4>After 5 Epochs</h4>
+                <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
             </div>
+        </div>
 
-            <h3>1.6 Classifier-Free Guidance (CFG)</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <h4>After 1 Epoch</h4>
-                    <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
-                </div>
-                <div class="col-md-6">
-                    <h4>After 5 Epochs</h4>
-                    <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
-                </div>
+        <h3>1.3 One-Step Denoising</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>After 1 Epoch</h4>
+                <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
             </div>
-
-            <h3>1.7 Image-to-image Translation</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <h4>After 1 Epoch</h4>
-                    <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
-                </div>
-                <div class="col-md-6">
-                    <h4>After 5 Epochs</h4>
-                    <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
-                </div>
+            <div class="col-md-6">
+                <h4>After 5 Epochs</h4>
+                <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
             </div>
+        </div>
 
-            <h3>1.8 Visual Anagrams</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <h4>After 1 Epoch</h4>
-                    <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
-                </div>
-                <div class="col-md-6">
-                    <h4>After 5 Epochs</h4>
-                    <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
-                </div>
+        <h3>1.4 Iterative Denoising</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>After 1 Epoch</h4>
+                <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
             </div>
-
-            <h3>1.9 Hybrid Images</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <h4>After 1 Epoch</h4>
-                    <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
-                </div>
-                <div class="col-md-6">
-                    <h4>After 5 Epochs</h4>
-                    <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
-                </div>
+            <div class="col-md-6">
+                <h4>After 5 Epochs</h4>
+                <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
             </div>
-            
-        </section>
+        </div>
 
+        <h3>1.5 Diffusion Model Sampling</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>After 1 Epoch</h4>
+                <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
+            </div>
+            <div class="col-md-6">
+                <h4>After 5 Epochs</h4>
+                <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
+            </div>
+        </div>
+
+        <h3>1.6 Classifier-Free Guidance (CFG)</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>After 1 Epoch</h4>
+                <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
+            </div>
+            <div class="col-md-6">
+                <h4>After 5 Epochs</h4>
+                <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
+            </div>
+        </div>
+
+        <h3>1.7 Image-to-image Translation</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>After 1 Epoch</h4>
+                <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
+            </div>
+            <div class="col-md-6">
+                <h4>After 5 Epochs</h4>
+                <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
+            </div>
+        </div>
+
+        <h3>1.8 Visual Anagrams</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>After 1 Epoch</h4>
+                <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
+            </div>
+            <div class="col-md-6">
+                <h4>After 5 Epochs</h4>
+                <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
+            </div>
+        </div>
+
+        <h3>1.9 Hybrid Images</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>After 1 Epoch</h4>
+                <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
+            </div>
+            <div class="col-md-6">
+                <h4>After 5 Epochs</h4>
+                <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
+            </div>
+        </div>
         
+    </div>
 
-        
-        
-        <h2 style="text-align: center;"> Part B</h2>
-        <!-- Part 1 -->
-        <section>
-            <h2 class="section-title">Part 1: Single-Step Denoising UNet</h2>
-            <p><strong>Objective:</strong> Train a UNet for single-step denoising using MNIST dataset.</p>
-            <p>
-                The first part of the project focuses on training a UNet model to perform single-step denoising on the MNIST dataset. 
-                The objective is to restore clean images from noisy counterparts that have been corrupted with Gaussian noise. 
-                This task involves preparing the MNIST dataset by adding noise to simulate real-world degradations. A UNet architecture is then designed 
-                to learn the mapping from noisy to clean images. During training, the model minimizes the mean squared error between the predicted and ground truth images. 
-                The results are evaluated by comparing denoised outputs at different stages of training, visualizing the loss curve, and testing the model on noise levels unseen during training. 
-                The outcomes demonstrate the UNet's ability to effectively learn and improve its denoising performance over time.
-            </p>
+    
 
-            <h3>Visualization of Noising Process</h3>
-            <div class="img-container">
-                <img src="figure3_noising_process.png" alt="Noising Process Visualization">
+    
+    
+    <h2 style="text-align: center;"> Part B</h2>
+    <!-- Part 1 -->
+   <div class="section">
+        <h2 class="section-title">Part 1: Single-Step Denoising UNet</h2>
+        <p><strong>Objective:</strong> Train a UNet for single-step denoising using MNIST dataset.</p>
+        <p>
+            The first part of the project focuses on training a UNet model to perform single-step denoising on the MNIST dataset. 
+            The objective is to restore clean images from noisy counterparts that have been corrupted with Gaussian noise. 
+            This task involves preparing the MNIST dataset by adding noise to simulate real-world degradations. A UNet architecture is then designed 
+            to learn the mapping from noisy to clean images. During training, the model minimizes the mean squared error between the predicted and ground truth images. 
+            The results are evaluated by comparing denoised outputs at different stages of training, visualizing the loss curve, and testing the model on noise levels unseen during training. 
+            The outcomes demonstrate the UNet's ability to effectively learn and improve its denoising performance over time.
+        </p>
+
+        <h3>Visualization of Noising Process</h3>
+        <div class="img-container">
+            <img src="figure3_noising_process.png" alt="Noising Process Visualization">
+        </div>
+
+        <h3>Training Loss Curve</h3>
+        <div class="img-container">
+            <img src="figure4_training_loss.png" alt="Training Loss Curve">
+        </div>
+
+        <h3>Test Set Results</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>After 1 Epoch</h4>
+                <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
             </div>
-
-            <h3>Training Loss Curve</h3>
-            <div class="img-container">
-                <img src="figure4_training_loss.png" alt="Training Loss Curve">
+            <div class="col-md-6">
+                <h4>After 5 Epochs</h4>
+                <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
             </div>
+        </div>
 
-            <h3>Test Set Results</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <h4>After 1 Epoch</h4>
-                    <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
-                </div>
-                <div class="col-md-6">
-                    <h4>After 5 Epochs</h4>
-                    <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
-                </div>
+        <h3>Out-of-Distribution Testing</h3>
+        <div class="img-container">
+            <img src="figure7_varying_noise.png" alt="Varying Noise Levels">
+        </div>
+    </div>
+
+    <!-- Part 2 -->
+    <div class="section">
+        <h2 class="section-title">Part 2: Training a Diffusion Model</h2>
+        <p><strong>Objective:</strong> Train a time-conditioned UNet to iteratively denoise images.</p>
+        <p>
+            In the second part, a time-conditioned UNet is trained to iteratively denoise images as part of a diffusion model framework. 
+            The key idea is to generate a sequence of noisy images by progressively adding Gaussian noise, 
+            then train the model to reverse this process step by step. The UNet incorporates a time-conditioning mechanism, 
+            allowing it to denoise images based on the noise level at a given timestep. The model is trained to minimize the 
+            difference between its predictions and the clean images, enabling it to reconstruct high-quality samples from noisy inputs. 
+            Training progress is tracked using a loss curve, while the quality of generated images is evaluated by sampling outputs at 
+            different stages of training. These results illustrate the model's ability to iteratively improve the image quality through the denoising process.
+        </p>
+
+        <h3>Training Loss Curve</h3>
+        <div class="img-container">
+            <img src="figure10_diffusion_loss_curve.png" alt="Diffusion Training Loss Curve">
+        </div>
+
+        <h3>Sampling Results</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>After 5 Epochs</h4>
+                <img src="diffusion_epoch5.png" alt="Diffusion Results After 5 Epochs">
             </div>
-
-            <h3>Out-of-Distribution Testing</h3>
-            <div class="img-container">
-                <img src="figure7_varying_noise.png" alt="Varying Noise Levels">
+            <div class="col-md-6">
+                <h4>After 20 Epochs</h4>
+                <img src="diffusion_epoch20.png" alt="Diffusion Results After 20 Epochs">
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Part 2 -->
-        <section>
-            <h2 class="section-title">Part 2: Training a Diffusion Model</h2>
-            <p><strong>Objective:</strong> Train a time-conditioned UNet to iteratively denoise images.</p>
-            <p>
-                In the second part, a time-conditioned UNet is trained to iteratively denoise images as part of a diffusion model framework. 
-                The key idea is to generate a sequence of noisy images by progressively adding Gaussian noise, 
-                then train the model to reverse this process step by step. The UNet incorporates a time-conditioning mechanism, 
-                allowing it to denoise images based on the noise level at a given timestep. The model is trained to minimize the 
-                difference between its predictions and the clean images, enabling it to reconstruct high-quality samples from noisy inputs. 
-                Training progress is tracked using a loss curve, while the quality of generated images is evaluated by sampling outputs at 
-                different stages of training. These results illustrate the model's ability to iteratively improve the image quality through the denoising process.
-            </p>
+    <!-- Optional: Class-Conditioned UNet -->
+    <div class="section">
+        <h3 class="section-title">Class-Conditioned UNet</h2>
+        <p><strong>Objective:</strong> Train a class-conditioned UNet with classifier-free guidance.</p>
+        <p>
+            The final part of the project extends the diffusion model by introducing class conditioning, where the model is guided to generate outputs corresponding to specific classes. 
+            This is achieved by incorporating one-hot encoded class labels as an additional input to the UNet model. 
+            During training, the model learns to associate noisy images with their respective class labels, 
+            allowing it to produce class-specific results during sampling. To further enhance the generated outputs, 
+            classifier-free guidance is applied, encouraging the model to better focus on class-related features. 
+            The effectiveness of this approach is evaluated by generating samples for each class at different training stages, 
+            with visualizations showcasing the diversity and accuracy of the generated images.
+        </p>
 
-            <h3>Training Loss Curve</h3>
-            <div class="img-container">
-                <img src="figure10_diffusion_loss_curve.png" alt="Diffusion Training Loss Curve">
+        <h3>Training Loss Curve</h3>
+        <div class="img-container">
+            <img src="figure11_class_conditioned_loss.png" alt="Class-Conditioned Training Loss Curve">
+        </div>
+
+        <h3>Sampling Results</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>After 5 Epochs</h4>
+                <img src="class_conditioned_epoch5.png" alt="Class-Conditioned Results After 5 Epochs">
             </div>
-
-            <h3>Sampling Results</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <h4>After 5 Epochs</h4>
-                    <img src="diffusion_epoch5.png" alt="Diffusion Results After 5 Epochs">
-                </div>
-                <div class="col-md-6">
-                    <h4>After 20 Epochs</h4>
-                    <img src="diffusion_epoch20.png" alt="Diffusion Results After 20 Epochs">
-                </div>
+            <div class="col-md-6">
+                <h4>After 20 Epochs</h4>
+                <img src="class_conditioned_epoch20.png" alt="Class-Conditioned Results After 20 Epochs">
             </div>
-        </section>
-
-        <!-- Optional: Class-Conditioned UNet -->
-        <section>
-            <h3 class="section-title">Class-Conditioned UNet</h2>
-            <p><strong>Objective:</strong> Train a class-conditioned UNet with classifier-free guidance.</p>
-            <p>
-                The final part of the project extends the diffusion model by introducing class conditioning, where the model is guided to generate outputs corresponding to specific classes. 
-                This is achieved by incorporating one-hot encoded class labels as an additional input to the UNet model. 
-                During training, the model learns to associate noisy images with their respective class labels, 
-                allowing it to produce class-specific results during sampling. To further enhance the generated outputs, 
-                classifier-free guidance is applied, encouraging the model to better focus on class-related features. 
-                The effectiveness of this approach is evaluated by generating samples for each class at different training stages, 
-                with visualizations showcasing the diversity and accuracy of the generated images.
-            </p>
-
-            <h3>Training Loss Curve</h3>
-            <div class="img-container">
-                <img src="figure11_class_conditioned_loss.png" alt="Class-Conditioned Training Loss Curve">
-            </div>
-
-            <h3>Sampling Results</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <h4>After 5 Epochs</h4>
-                    <img src="class_conditioned_epoch5.png" alt="Class-Conditioned Results After 5 Epochs">
-                </div>
-                <div class="col-md-6">
-                    <h4>After 20 Epochs</h4>
-                    <img src="class_conditioned_epoch20.png" alt="Class-Conditioned Results After 20 Epochs">
-                </div>
-            </div>
-        </section>
+        </div>
     </div>
 
 </body>
