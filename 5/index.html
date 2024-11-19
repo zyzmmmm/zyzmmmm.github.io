@@ -36,6 +36,14 @@
         <section>
             <h2 class="section-title">Part 1: Single-Step Denoising UNet</h2>
             <p><strong>Objective:</strong> Train a UNet for single-step denoising using MNIST dataset.</p>
+            <p>
+                The first part of the project focuses on training a UNet model to perform single-step denoising on the MNIST dataset. 
+                The objective is to restore clean images from noisy counterparts that have been corrupted with Gaussian noise. 
+                This task involves preparing the MNIST dataset by adding noise to simulate real-world degradations. A UNet architecture is then designed 
+                to learn the mapping from noisy to clean images. During training, the model minimizes the mean squared error between the predicted and ground truth images. 
+                The results are evaluated by comparing denoised outputs at different stages of training, visualizing the loss curve, and testing the model on noise levels unseen during training. 
+                The outcomes demonstrate the UNet's ability to effectively learn and improve its denoising performance over time.
+            </p>
 
             <h3>Visualization of Noising Process</h3>
             <div class="img-container">
@@ -69,6 +77,15 @@
         <section>
             <h2 class="section-title">Part 2: Training a Diffusion Model</h2>
             <p><strong>Objective:</strong> Train a time-conditioned UNet to iteratively denoise images.</p>
+            <p>
+                In the second part, a time-conditioned UNet is trained to iteratively denoise images as part of a diffusion model framework. 
+                The key idea is to generate a sequence of noisy images by progressively adding Gaussian noise, 
+                then train the model to reverse this process step by step. The UNet incorporates a time-conditioning mechanism, 
+                allowing it to denoise images based on the noise level at a given timestep. The model is trained to minimize the 
+                difference between its predictions and the clean images, enabling it to reconstruct high-quality samples from noisy inputs. 
+                Training progress is tracked using a loss curve, while the quality of generated images is evaluated by sampling outputs at 
+                different stages of training. These results illustrate the model's ability to iteratively improve the image quality through the denoising process.
+            </p>
 
             <h3>Training Loss Curve</h3>
             <div class="img-container">
@@ -90,8 +107,17 @@
 
         <!-- Optional: Class-Conditioned UNet -->
         <section>
-            <h2 class="section-title">Part 3: Class-Conditioned UNet</h2>
+            <h3 class="section-title">Class-Conditioned UNet</h2>
             <p><strong>Objective:</strong> Train a class-conditioned UNet with classifier-free guidance.</p>
+            <p>
+                The final part of the project extends the diffusion model by introducing class conditioning, where the model is guided to generate outputs corresponding to specific classes. 
+                This is achieved by incorporating one-hot encoded class labels as an additional input to the UNet model. 
+                During training, the model learns to associate noisy images with their respective class labels, 
+                allowing it to produce class-specific results during sampling. To further enhance the generated outputs, 
+                classifier-free guidance is applied, encouraging the model to better focus on class-related features. 
+                The effectiveness of this approach is evaluated by generating samples for each class at different training stages, 
+                with visualizations showcasing the diversity and accuracy of the generated images.
+            </p>
 
             <h3>Training Loss Curve</h3>
             <div class="img-container">
