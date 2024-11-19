@@ -36,7 +36,13 @@
     <div class="section">
         <h2 class="section-title">Part 0: Single-Step Denoising UNet</h2>
         <p><strong>Objective:</strong> Train a UNet for single-step denoising using MNIST dataset.</p>
-        <p></p>
+        <p>
+            In this part, we will set up the environment to use DeepFloyd, a two-stage diffusion model by Stability AI. To begin, 
+            create a Hugging Face account and log in, then accept the license on the DeepFloyd/IF-I-XL-v1.0 model card. Download the precomputed 
+            text embeddings to avoid GPU memory issues, especially when using free Colab resources. The model will generate images from text 
+            prompts, with "a high quality photo" serving as a neutral, unconditional prompt for this part. Your task is to generate images 
+            for three prompts, reflect on the outputs, experiment with num_inference_steps, and report the random seed used for generation.
+        </p>
 
         <h3>Test Set Results</h3>
         <div class="row">
@@ -55,9 +61,17 @@
     <div class="section">
         <h2 class="section-title">Part 1: Single-Step Denoising UNet</h2>
         <p><strong>Objective:</strong> Train a UNet for single-step denoising using MNIST dataset.</p>
-        <p></p>
 
         <h3>1.1 Implementing the Forward Process</h3>
+        <p>
+            In this part, the goal is to implement the forward diffusion process, which progressively adds noise to a clean image. 
+            The forward process involves sampling from a Gaussian distribution with mean proportional to the clean image and a variance 
+            that increases over time. The image is scaled by the cumulative product of alphas (alphas_cumprod), where smaller timesteps 
+            result in an image close to the original (less noise) and larger timesteps result in more noise. The task is to write the function 
+            noisy_im = forward(im, t), which takes a clean image and a timestep t as inputs, and returns the noisy image at that timestep. 
+            The test image, Campanile, should be resized to 64x64, and the function should be applied to generate noisy images at 
+            timesteps [250, 500, 750], which should be displayed to observe the progression of noise.
+        </p>
         <div class="row">
             <div class="col-md-6">
                 <h4>After 1 Epoch</h4>
@@ -70,6 +84,14 @@
         </div>
 
         <h3>1.2 Classical Denoising</h3>
+        <p>
+            n this part, the goal is to apply classical denoising techniques, specifically Gaussian blur filtering, to the noisy images 
+            generated in the previous step (at timesteps [250, 500, 750]). Gaussian blur is a smoothing filter that attempts to reduce 
+            noise by averaging pixels within a local neighborhood, but it is unlikely to produce good results due to the complexity of 
+            noise in the diffusion process. The task is to apply the torchvision.transforms.functional.gaussian_blur function to each noisy 
+            image and display the denoised images side by side with the corresponding noisy images. This will illustrate the challenge 
+            of denoising these images using traditional methods.
+        </p>
         <div class="row">
             <div class="col-md-6">
                 <h4>After 1 Epoch</h4>
@@ -82,6 +104,13 @@
         </div>
 
         <h3>1.3 One-Step Denoising</h3>
+        <p>
+            Part 1.3 involves using the pretrained UNet model (stage_1.unet) to denoise noisy images generated at timesteps [250, 500, 750]. 
+            The model estimates the noise in the image based on the timestep and a provided text prompt embedding. The noisy image is passed 
+            through the UNet to predict the noise, which is then removed to recover an estimate of the original image. The denoised image, along 
+            with the original and noisy images, should be visualized for comparison. Ensure tensors are on the correct device and use 
+            torch.no_grad() for memory efficiency.
+        </p>
         <div class="row">
             <div class="col-md-6">
                 <h4>After 1 Epoch</h4>
@@ -94,6 +123,12 @@
         </div>
 
         <h3>1.4 Iterative Denoising</h3>
+        <p>
+            Part 1.4 focuses on implementing iterative denoising for diffusion models. Instead of running the model 1000 times, the process can 
+            be sped up by skipping steps. The goal is to create a list of timesteps (strided_timesteps), starting at the noisiest image and reducing 
+            the noise step by step. The formula for each denoising step involves a linear interpolation between the noisy image and a clean image 
+            estimate, adjusting for the noise at each timestep.
+        </p>
         <div class="row">
             <div class="col-md-6">
                 <h4>After 1 Epoch</h4>
@@ -106,6 +141,11 @@
         </div>
 
         <h3>1.5 Diffusion Model Sampling</h3>
+        <p>
+            Part 1.5 involves using the iterative_denoise function to generate images from scratch by denoising random noise. 
+            By setting i_start = 0 and initializing the image with pure noise, the model progressively refines the noisy image 
+            into a coherent result. The task requires generating 5 images based on the prompt "a high quality photo."
+        </p>
         <div class="row">
             <div class="col-md-6">
                 <h4>After 1 Epoch</h4>
@@ -118,6 +158,11 @@
         </div>
 
         <h3>1.6 Classifier-Free Guidance (CFG)</h3>
+        <p>
+            Part 1.6 focuses on improving image quality through Classifier-Free Guidance (CFG). CFG enhances the diffusion process 
+            by computing both conditional and unconditional noise estimates. The final noise estimate is a weighted combination of these two, 
+            with the weighting controlled by the CFG scale. This technique improves the quality of generated images but reduces their diversity.
+        </p>
         <div class="row">
             <div class="col-md-6">
                 <h4>After 1 Epoch</h4>
@@ -130,6 +175,61 @@
         </div>
 
         <h3>1.7 Image-to-image Translation</h3>
+        <p>
+            Part 1.7 focuses on image-to-image translation using the diffusion model with Classifier-Free Guidance (CFG). The goal is to take a noisy 
+            version of a test image and iteratively denoise it, gradually making the image resemble the original with varying levels of noise. 
+            This process is based on the SDEdit algorithm, which forces a noisy image back onto the manifold of natural images, allowing for creative edits.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>After 1 Epoch</h4>
+                <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
+            </div>
+            <div class="col-md-6">
+                <h4>After 5 Epochs</h4>
+                <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
+            </div>
+        </div>
+
+        <h4>1.7.1 Editing Hand-Drawn and Web Images</h4>
+        <p>
+            Part 1.7.1 focuses on applying the image-to-image translation procedure to hand-drawn or non-realistic images, such as sketches or web images, 
+            to project them onto the natural image manifold.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>After 1 Epoch</h4>
+                <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
+            </div>
+            <div class="col-md-6">
+                <h4>After 5 Epochs</h4>
+                <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
+            </div>
+        </div>
+
+        <h4>1.7.2 Inpainting</h4>
+        <p>      
+            In part 1.7.2, the task is to implement inpainting using the diffusion model, following the RePaint paper. The goal is to take an image 𝑥0, 
+            a binary mask 𝑚, and create a new image that retains the content of 𝑥0 where 𝑚=0 (the unmasked areas), but fills in the masked areas 
+            (where 𝑚=1) with new content generated by the model.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>After 1 Epoch</h4>
+                <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
+            </div>
+            <div class="col-md-6">
+                <h4>After 5 Epochs</h4>
+                <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
+            </div>
+        </div>
+
+        <h4>1.7.3 Text-Conditional Image-to-image Translation</h4>
+        <p>      
+            In part 1.7.3, the task is to apply text-conditional image-to-image translation. This is similar to the previous SDEdit approach but now includes 
+            a text prompt to guide the process. The goal is to generate images that not only project onto the natural image manifold but also incorporate 
+            the characteristics of the provided text prompt.
+        </p>
         <div class="row">
             <div class="col-md-6">
                 <h4>After 1 Epoch</h4>
@@ -142,6 +242,10 @@
         </div>
 
         <h3>1.8 Visual Anagrams</h3>
+        <p>
+            In part 1.8, the task is to implement Visual Anagrams—a technique that creates optical illusions using diffusion models. The goal is to generate 
+            an image that appears as one thing when viewed in one orientation but transforms into something completely different when flipped upside down.
+        </p>
         <div class="row">
             <div class="col-md-6">
                 <h4>After 1 Epoch</h4>
@@ -154,6 +258,10 @@
         </div>
 
         <h3>1.9 Hybrid Images</h3>
+        <p>
+            In part 1.9, the task is to create Hybrid Images using diffusion models. Hybrid images combine the low-frequency content from one image with 
+            the high-frequency content from another, producing an image that looks like one thing from a distance and something completely different up close.
+        </p>
         <div class="row">
             <div class="col-md-6">
                 <h4>After 1 Epoch</h4>
