@@ -33,29 +33,29 @@
             text-align: center;
         } */
         .image-container {
-            width: 100%; /* 容器宽度100%，可以控制图片的最大放大 */
-            max-width: 1000px; /* 可选的最大宽度，限制最大容器宽度 */
+            width: 100%; /* 容器宽度100%，最大限度适应屏幕 */
+            max-width: 1000px; /* 容器最大宽度1000px，避免图片过大 */
             margin: 0 auto; /* 容器居中 */
-        }    
-            
-            .image-item {
+        }
+        
+        .image-item {
             display: inline-block; /* 图片和标题作为独立块 */
             text-align: center;
-            width: 100%; /* 图片容器宽度100%，可随父容器变化 */
+            width: 100%; /* 容器宽度为100% */
         }
-            
-            .image-item img {
+        
+        .image-item img {
             display: block;
-            width: 100%; /* 图片宽度100%，适应容器宽度 */
-            height: auto; /* 保持图片比例 */
-            max-width: none; /* 允许图片放大 */
+            width: 100%; /* 图片宽度适应容器宽度 */
+            max-width: 100%; /* 图片的最大宽度与父容器相同 */
+            height: auto; /* 保持图片的宽高比 */
         }
-            
-            .image-item p {
+        
+        .image-item p {
             margin: 10px 0;
             word-wrap: break-word; /* 超出宽度时自动换行 */
             word-break: break-word; /* 长单词自动换行 */
-            max-width: 100%; /* 限制标题的宽度为图片的宽度 */
+            max-width: 100%; /* 限制标题宽度为图片的宽度 */
             text-align: center; /* 标题居中 */
         }
     </style>
