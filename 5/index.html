@@ -557,18 +557,21 @@
         <h3>Test Set Results</h3>
         <div class="row">
             <div class="col-md-6">
-                <h4>After 1 Epoch</h4>
-                <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
+                <img src="onestepdenoiseepoch=1.jpg" alt="Results After 1 Epoch" width=700 height="auto">
+                <p>Results on digits from the test set after 1 epoch of training</p>
             </div>
             <div class="col-md-6">
-                <h4>After 5 Epochs</h4>
-                <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
+                <img src="onestepdenoiseepoch=5.jpg" alt="Results After 5 Epochs" width=700 height="auto">
+                <p>Results on digits from the test set after 5 epoch of training</p>
             </div>
         </div>
 
         <h3>Out-of-Distribution Testing</h3>
-        <div class="img-container">
-            <img src="figure7_varying_noise.png" alt="Varying Noise Levels">
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./out/B/outofdistribution.jpg" alt="Image 1" width="1000px" height="auto">
+                <p>Results on digits from the test set with varying noise levels</p>
+            </div>
         </div>
     </div>
 
@@ -587,19 +590,26 @@
         </p>
 
         <h3>Training Loss Curve</h3>
-        <div class="img-container">
-            <img src="figure10_diffusion_loss_curve.png" alt="Diffusion Training Loss Curve">
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./out/B/timecondlossfuncepoch=5.jpg" alt="Image 1" width="700px" height="auto">
+                <p>Time-Conditioned UNet training loss curve with epoch=5</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/B/timecondlossfuncepoch=20.jpg" alt="Image 1" width="700px" height="auto">
+                <p>Time-Conditioned UNet training loss curve with epoch=20</p>
+            </div>
         </div>
 
         <h3>Sampling Results</h3>
-        <div class="row">
-            <div class="col-md-6">
-                <h4>After 5 Epochs</h4>
-                <img src="diffusion_epoch5.png" alt="Diffusion Results After 5 Epochs">
+        <div class="image-container">
+            <div class="image-item">
+                <img src=".out/B/timecondoutepoch=5.jpg" alt="Diffusion Results After 5 Epochs" width="700px" height="auto">
+                <p>Diffusion Results After 5 Epochs</p>
             </div>
-            <div class="col-md-6">
-                <h4>After 20 Epochs</h4>
-                <img src="diffusion_epoch20.png" alt="Diffusion Results After 20 Epochs">
+            <div class="image-item">
+                <img src=".out/B/timecondoutepoch=20.jpg" alt="Diffusion Results After 20 Epochs" width="700px" height="auto">
+                <p>Diffusion Results After 20 Epochs</p>
             </div>
         </div>
 
@@ -617,19 +627,26 @@
         </p>
 
         <h3>Training Loss Curve</h3>
-        <div class="img-container">
-            <img src="figure11_class_conditioned_loss.png" alt="Class-Conditioned Training Loss Curve">
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./out/B/classcondlossfuncepoch=5.jpg" alt="Image 1" width="700px" height="auto">
+                <p>Class-Conditioned UNet training loss curve with epoch=5</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/B/classcondlossfuncepoch=20.jpg" alt="Image 1" width="700px" height="auto">
+                <p>Class-Conditioned UNet training loss curve with epoch=20</p>
+            </div>
         </div>
 
         <h3>Sampling Results</h3>
-        <div class="row">
-            <div class="col-md-6">
-                <h4>After 5 Epochs</h4>
-                <img src="class_conditioned_epoch5.png" alt="Class-Conditioned Results After 5 Epochs">
+        <div class="image-container">
+            <div class="image-item">
+                <img src=".out/B/classcondoutepoch=5.jpg" alt="Diffusion Results After 5 Epochs" width="700px" height="auto">
+                <p>Diffusion Results After 5 Epochs</p>
             </div>
-            <div class="col-md-6">
-                <h4>After 20 Epochs</h4>
-                <img src="class_conditioned_epoch20.png" alt="Class-Conditioned Results After 20 Epochs">
+            <div class="image-item">
+                <img src=".out/B/classcondoutepoch=20.jpg" alt="Diffusion Results After 20 Epochs" width="700px" height="auto">
+                <p>Diffusion Results After 20 Epochs</p>
             </div>
         </div>
     </div>
