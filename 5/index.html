@@ -71,20 +71,20 @@
         </p>
         <div class="image-container">
             <div class="image-item">
-                <img src="./out/A/im1.jpg" alt="Image 1" width="60%" height="auto">
-                <p>im1</p>
+                <img src="./out/A/origin.jpg" alt="Image 1" width="300px" height="auto">
+                <p>original</p>
             </div>
             <div class="image-item">
-                <img src="./media/im2.jpg" alt="Image 1" width="60%" height="auto">
-                <p>im2</p>
+                <img src="./out/A/noisyt=250.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Noisy at t=250</p>
             </div>
             <div class="image-item">
-                <img src="./media/im2.jpg" alt="Image 1" width="60%" height="auto">
-                <p>im2</p>
+                <img src="./out/A/noisyt=500.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Noisy at t=500</p>
             </div>
             <div class="image-item">
-                <img src="./media/im2.jpg" alt="Image 1" width="60%" height="auto">
-                <p>im2</p>
+                <img src="./out/A/noisyt=750.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Noisy at t=750</p>
             </div>
         </div>
 
@@ -97,14 +97,33 @@
             image and display the denoised images side by side with the corresponding noisy images. This will illustrate the challenge 
             of denoising these images using traditional methods.
         </p>
-        <div class="row">
-            <div class="col-md-6">
-                <h4>After 1 Epoch</h4>
-                <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./out/A/noisyt=250.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Noisy Image at t=250</p>
             </div>
-            <div class="col-md-6">
-                <h4>After 5 Epochs</h4>
-                <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
+            <div class="image-item">
+                <img src="./out/A/noisyt=500.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Noisy Image at t=500</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/noisyt=750.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Noisy Image at t=750</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./out/A/blurt=250.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Gaussian Blur Denoising Image at t=250</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/blurt=500.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Gaussian Blur Denoising Image at t=500</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/blurt=750.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Gaussian Blur Denoising Image t=750</p>
             </div>
         </div>
 
@@ -116,14 +135,34 @@
             with the original and noisy images, should be visualized for comparison. Ensure tensors are on the correct device and use 
             torch.no_grad() for memory efficiency.
         </p>
-        <div class="row">
-            <div class="col-md-6">
-                <h4>After 1 Epoch</h4>
-                <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./out/A/noisyt=250.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Noisy Image at t=250</p>
             </div>
-            <div class="col-md-6">
-                <h4>After 5 Epochs</h4>
-                <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
+            <div class="image-item">
+                <img src="./out/A/noisyt=500.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Noisy Image at t=500</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/noisyt=750.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Noisy Image at t=750</p>
+            </div>
+        </div>
+        
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./out/A/cleanonestepistart=250.jpg" alt="Image 1" width="300px" height="auto">
+                <p>One Step Denoising Image at t=250</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/cleanonestepistart=500.jpg" alt="Image 1" width="300px" height="auto">
+                <p>One Step Denoising Image at t=500</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/cleanonestepistart=750.jpg" alt="Image 1" width="300px" height="auto">
+                <p>One Step Denoising Image t=750</p>
             </div>
         </div>
 
@@ -134,14 +173,45 @@
             the noise step by step. The formula for each denoising step involves a linear interpolation between the noisy image and a clean image 
             estimate, adjusting for the noise at each timestep.
         </p>
-        <div class="row">
-            <div class="col-md-6">
-                <h4>After 1 Epoch</h4>
-                <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./out/A/cleant=690istart=10.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Noisy Image at t=690</p>
             </div>
-            <div class="col-md-6">
-                <h4>After 5 Epochs</h4>
-                <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
+            <div class="image-item">
+                <img src="./out/A/cleant=540istart=10.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Noisy Image at t=540</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/cleant=390istart=10.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Noisy Image at t=390</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/cleant=240istart=10.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Noisy Image at t=240</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/cleant=90istart=10.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Noisy Image at t=90</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./out/A/origin.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Original</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/cleant=0istart=10.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Iterative Denoising Image</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/cleanonestepistart=10.jpg" alt="Image 1" width="300px" height="auto">
+                <p>One Step Denoising Image</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/bluristart=10.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Gaussian Blurred Denoising Image</p>
             </div>
         </div>
 
@@ -151,14 +221,26 @@
             By setting i_start = 0 and initializing the image with pure noise, the model progressively refines the noisy image 
             into a coherent result. The task requires generating 5 images based on the prompt "a high quality photo."
         </p>
-        <div class="row">
-            <div class="col-md-6">
-                <h4>After 1 Epoch</h4>
-                <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./out/A/randomsample0.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Sample 1</p>
             </div>
-            <div class="col-md-6">
-                <h4>After 5 Epochs</h4>
-                <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
+            <div class="image-item">
+                <img src="./out/A/ramdomsample1.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Sample 2</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/randomsample2.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Sample 3</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/randomsample3.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Sample 4</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/randomsample4.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Sample 5</p>
             </div>
         </div>
 
@@ -168,14 +250,26 @@
             by computing both conditional and unconditional noise estimates. The final noise estimate is a weighted combination of these two, 
             with the weighting controlled by the CFG scale. This technique improves the quality of generated images but reduces their diversity.
         </p>
-        <div class="row">
-            <div class="col-md-6">
-                <h4>After 1 Epoch</h4>
-                <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./out/A/randomsamplecfg0.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Sample with CFG 1</p>
             </div>
-            <div class="col-md-6">
-                <h4>After 5 Epochs</h4>
-                <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
+            <div class="image-item">
+                <img src="./out/A/ramdomsamplecfg1.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Sample with CFG 2</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/randomsamplecfg2.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Sample with CFG 3</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/randomsamplecfg3.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Sample with CFG 4</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/randomsamplecfg4.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Sample with CFG 5</p>
             </div>
         </div>
 
@@ -185,14 +279,34 @@
             version of a test image and iteratively denoise it, gradually making the image resemble the original with varying levels of noise. 
             This process is based on the SDEdit algorithm, which forces a noisy image back onto the manifold of natural images, allowing for creative edits.
         </p>
-        <div class="row">
-            <div class="col-md-6">
-                <h4>After 1 Epoch</h4>
-                <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./out/A/SDEditistart=1.jpg" alt="Image 1" width="300px" height="auto">
+                <p>SDEdit i_start=1</p>
             </div>
-            <div class="col-md-6">
-                <h4>After 5 Epochs</h4>
-                <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
+            <div class="image-item">
+                <img src="./out/A/SDEditistart=3.jpg" alt="Image 1" width="300px" height="auto">
+                <p>SDEdit i_start=3</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/SDEditistart=5.jpg" alt="Image 1" width="300px" height="auto">
+                <p>SDEdit i_start=5</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/SDEditistart=7.jpg" alt="Image 1" width="300px" height="auto">
+                <p>SDEdit i_start=7</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/SDEditistart=10.jpg" alt="Image 1" width="300px" height="auto">
+                <p>SDEdit i_start=10</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/SDEditistart=20.jpg" alt="Image 1" width="300px" height="auto">
+                <p>SDEdit i_start=20</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/origin.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Original</p>
             </div>
         </div>
 
@@ -201,14 +315,127 @@
             Part 1.7.1 focuses on applying the image-to-image translation procedure to hand-drawn or non-realistic images, such as sketches or web images, 
             to project them onto the natural image manifold.
         </p>
-        <div class="row">
-            <div class="col-md-6">
-                <h4>After 1 Epoch</h4>
-                <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./out/A/webimistart=1.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image at i_start=1</p>
             </div>
-            <div class="col-md-6">
-                <h4>After 5 Epochs</h4>
-                <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
+            <div class="image-item">
+                <img src="./out/A/webimistart=3.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image at i_start=3</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/webimistart=5.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image at i_start=5</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/webimistart=7.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image at i_start=7</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/webimistart=10.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image at i_start=10</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/webimistart=20.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image at i_start=20</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/webim.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image from Website</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./out/A/webim2istart=1.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image at i_start=1</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/webim2istart=3.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image at i_start=3</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/webim2istart=5.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image at i_start=5</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/webim2istart=7.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image at i_start=7</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/webim2istart=10.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image at i_start=10</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/webim2istart=20.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image at i_start=20</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/webim2.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image from Website</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./out/A/draw1istart=1.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image at i_start=1</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/draw1istart=3.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image at i_start=3</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/draw1istart=5.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image at i_start=5</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/draw1istart=7.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image at i_start=7</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/draw1istart=10.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image at i_start=10</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/draw1istart=20.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image at i_start=20</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/draw1.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image from Website</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./out/A/draw2istart=1.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image at i_start=1</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/draw2istart=3.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image at i_start=3</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/draw2istart=5.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image at i_start=5</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/draw2istart=7.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image at i_start=7</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/draw2istart=10.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image at i_start=10</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/draw2istart=20.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Image at i_start=20</p>
+            </div>
+            <div class="image-item">
+                <img src="./out/A/draw2.jpg" alt="Image 1" width="300px" height="auto">
+                <p>Hand Drawn Image</p>
             </div>
         </div>
 
@@ -251,14 +478,14 @@
             In part 1.8, the task is to implement Visual Anagrams—a technique that creates optical illusions using diffusion models. The goal is to generate 
             an image that appears as one thing when viewed in one orientation but transforms into something completely different when flipped upside down.
         </p>
-        <div class="row">
-            <div class="col-md-6">
-                <h4>After 1 Epoch</h4>
-                <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./out/A/vaup.jpg" alt="Image 1" width="700px" height="auto">
+                <p>An Oil Painting of an Old Man</p>
             </div>
-            <div class="col-md-6">
-                <h4>After 5 Epochs</h4>
-                <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
+            <div class="image-item">
+                <img src="./out/A/vadown.jpg" alt="Image 1" width="700px" height="auto">
+                <p>An Oil Painting of People around a Campfire</p>
             </div>
         </div>
 
@@ -267,14 +494,10 @@
             In part 1.9, the task is to create Hybrid Images using diffusion models. Hybrid images combine the low-frequency content from one image with 
             the high-frequency content from another, producing an image that looks like one thing from a distance and something completely different up close.
         </p>
-        <div class="row">
-            <div class="col-md-6">
-                <h4>After 1 Epoch</h4>
-                <img src="figure5_results_epoch1.png" alt="Results After 1 Epoch">
-            </div>
-            <div class="col-md-6">
-                <h4>After 5 Epochs</h4>
-                <img src="figure6_results_epoch5.png" alt="Results After 5 Epochs">
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./out/A/hybrid.jpg" alt="Image 1" width="700px" height="auto">
+                <p>Hybrid image of a skull and a waterfall</p>
             </div>
         </div>
         
