@@ -33,30 +33,28 @@
             text-align: center;
         } */
         .image-container {
-            width: 100%; /* 容器宽度100%，最大限度适应屏幕 */
-            max-width: 1000px; /* 容器最大宽度1000px，避免图片过大 */
-            margin: 0 auto; /* 容器居中 */
+            position: relative;
+            display: inline-block;
         }
-        
-        .image-item {
-            display: inline-block; /* 图片和标题作为独立块 */
-            text-align: center;
-            width: 100%; /* 容器宽度为100% */
-        }
-        
-        .image-item img {
+        .image-container img {
+            width: 100%; /* 或者你需要的宽度 */
             display: block;
-            width: 100%; /* 图片宽度适应容器宽度 */
-            max-width: 100%; /* 图片的最大宽度与父容器相同 */
-            height: auto; /* 保持图片的宽高比 */
         }
-        
-        .image-item p {
-            margin: 10px 0;
-            word-wrap: break-word; /* 超出宽度时自动换行 */
-            word-break: break-word; /* 长单词自动换行 */
-            max-width: 100%; /* 限制标题宽度为图片的宽度 */
-            text-align: center; /* 标题居中 */
+        .image-container .title {
+            position: absolute;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+            color: white;
+            padding: 5px;
+            width: 100%;
+            white-space: nowrap; /* 防止自动换行 */
+            overflow: hidden; /* 防止内容溢出 */
+            text-overflow: ellipsis; /* 超出部分显示省略号 */
+        }
+        @media screen and (max-width: 600px) {
+        .image-container .title {
+              white-space: normal; /* 在小屏幕上允许自动换行 */
+            }
         }
     </style>
 </head>
