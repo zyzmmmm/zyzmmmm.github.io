@@ -16,19 +16,13 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .image-container {
+/*         .image-container {
             display: flex; 
             justify-content: center; 
             gap: 20px; 
         }
         .image-item {
             text-align: center; 
-        }
-        .image-item img {
-            display: block;
-            width: auto;
-            max-width: 100%;
-            height: auto;
         }
         .image-item p {
             margin: 10px 0;
@@ -37,6 +31,32 @@
             width: auto;
             max-width: inherit;
             text-align: center;
+        } */
+        .image-container {
+            width: 100%; /* 容器宽度100%，可以控制图片的最大放大 */
+            max-width: 1000px; /* 可选的最大宽度，限制最大容器宽度 */
+            margin: 0 auto; /* 容器居中 */
+        }    
+            
+            .image-item {
+            display: inline-block; /* 图片和标题作为独立块 */
+            text-align: center;
+            width: 100%; /* 图片容器宽度100%，可随父容器变化 */
+        }
+            
+            .image-item img {
+            display: block;
+            width: 100%; /* 图片宽度100%，适应容器宽度 */
+            height: auto; /* 保持图片比例 */
+            max-width: none; /* 允许图片放大 */
+        }
+            
+            .image-item p {
+            margin: 10px 0;
+            word-wrap: break-word; /* 超出宽度时自动换行 */
+            word-break: break-word; /* 长单词自动换行 */
+            max-width: 100%; /* 限制标题的宽度为图片的宽度 */
+            text-align: center; /* 标题居中 */
         }
     </style>
 </head>
