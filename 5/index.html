@@ -16,7 +16,7 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-/*         .image-container {
+        .image-container {
             display: flex; 
             justify-content: center; 
             gap: 20px; 
@@ -31,30 +31,6 @@
             width: auto;
             max-width: inherit;
             text-align: center;
-        } */
-        .image-container {
-            position: relative;
-            display: inline-block;
-        }
-        .image-container img {
-            width: 100%; /* 或者你需要的宽度 */
-            display: block;
-        }
-        .image-container .title {
-            position: absolute;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
-            color: white;
-            padding: 5px;
-            width: 100%;
-            white-space: nowrap; /* 防止自动换行 */
-            overflow: hidden; /* 防止内容溢出 */
-            text-overflow: ellipsis; /* 超出部分显示省略号 */
-        }
-        @media screen and (max-width: 600px) {
-        .image-container .title {
-              white-space: normal; /* 在小屏幕上允许自动换行 */
-            }
         }
     </style>
 </head>
