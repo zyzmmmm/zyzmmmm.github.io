@@ -171,6 +171,30 @@
         </div>
     </div>
 
+    <div class="section">
+        <h2 class="section-title">Bells & Whistles: Iterative Texture Transfer</h2>
+        <p><strong>Gradually refine texture transfer results by iteratively improving the mapping between the source texture and the target image.</p>
+        <p>
+            TThe texture transfer is performed iteratively on the target image, allowing the texture to match the target image at different scales. 
+            By adjusting the patch size and alpha value during the iterations, better results can be achieved.
+        </p>
+
+        <h3>Test Set Results</h3>
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/A/examplenis=20.jpg" alt="Image 1" width="1000px" height="auto">
+                <p>Outputs with num_inference_steps=20</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/A/examplenis=50.jpg" alt="Image 1" width="1000px" height="auto">
+                <p>Outputs with num_inference_steps=50</p>
+            </div>
+        </div>
+    </div>
+
 
 </body>
 </html>
