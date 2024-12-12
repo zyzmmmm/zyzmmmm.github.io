@@ -49,17 +49,26 @@
         <h3>Test Set Results</h3>
         <div class="image-container">
             <div class="image-item">
-                <img src="./media/A/examplenis=20.jpg" alt="Image 1" width="1000px" height="auto">
-                <p>Outputs with num_inference_steps=20</p>
+                <img src="./media/origin1.jpg" alt="Image 1" width="500px" height="auto">
+                <p>origin</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/quiltrandom1.jpg" alt="Image 1" width="500px" height="auto">
+                <p>Ramdom Sampled Texture</p>
             </div>
         </div>
 
         <div class="image-container">
             <div class="image-item">
-                <img src="./media/A/examplenis=50.jpg" alt="Image 1" width="1000px" height="auto">
-                <p>Outputs with num_inference_steps=50</p>
+                <img src="./media/origin2.jpg" alt="Image 1" width="500px" height="auto">
+                <p>origin</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/quiltrandom2.jpg" alt="Image 1" width="500px" height="auto">
+                <p>Ramdom Sampled Texture</p>
             </div>
         </div>
+
     </div>
 
     <div class="section">
@@ -72,21 +81,29 @@
             those with SSD costs below a defined threshold (tol) To enhance the generative capability of the algorithm, we select 
             the tol patches with the lowest cost and randomly choose one from these patches to fill in. When tol is large, the 
             algorithm has stronger generative ability, but mismatched patterns may occur; when tol is small, the patterns are more 
-            uniform, but the ability to generate new content is limited..
+            uniform, but the ability to generate new content is limited.
         </p>
 
         <h3>Test Set Results</h3>
         <div class="image-container">
             <div class="image-item">
-                <img src="./media/A/examplenis=20.jpg" alt="Image 1" width="1000px" height="auto">
-                <p>Outputs with num_inference_steps=20</p>
+                <img src="./media/origin1.jpg" alt="Image 1" width="500px" height="auto">
+                <p>origin</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/quiltsimpletol5.jpg" alt="Image 1" width="500px" height="auto">
+                <p>quilt simple tol=5</p>
             </div>
         </div>
 
         <div class="image-container">
             <div class="image-item">
-                <img src="./media/A/examplenis=50.jpg" alt="Image 1" width="1000px" height="auto">
-                <p>Outputs with num_inference_steps=50</p>
+                <img src="./media/quiltsimpletol3.jpg" alt="Image 1" width="500px" height="auto">
+                <p>quilt simple tol=3</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/quiltsimpletol1.jpg" alt="Image 1" width="500px" height="auto">
+                <p>quilt simple tol=1</p>
             </div>
         </div>
     </div>
