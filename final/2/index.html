@@ -1,1 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .section {
+            background: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .image-container {
+            display: flex; 
+            justify-content: center; 
+            gap: 20px; 
+        }
+        .image-item {
+            text-align: center; 
+        }
+        .image-container p {
+            white-space: normal;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <<h1 style="text-align: center;">Final Project: Pyramid-Based Texture Analysis and Synthesis</h1>
+    <h2 style="text-align: center;">Yuze Zhang</h2>
+    <div class="section">
+        <h2 class="section-title">Implementing Oriented Filters</h2>
+        <p><strong>Objective:</strong> Create and verify oriented filters, and demonstrate that the sum of all oriented filters 
+          for a given band equals a standard Laplacian band-pass filter.</p>
+        <p>
+            The oriented filters are used to extract direction-specific information from images, which is a critical component 
+            of the steerable pyramid. These filters operate in the spatial domain to extract oriented features at various frequency 
+            bands. The implementation involves validating the filters by summing them and showing that their combination is equivalent 
+            to a Laplacian band-pass filter. To demonstrate their utility, a set of sample images is convolved with these filters, and 
+            the resulting direction-specific features are visualized.
+        </p>
 
+        <h3>Results</h3>
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/origin1.jpg" alt="Image 1" width="500px" height="auto">
+                <p>origin</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/quiltrandom1.jpg" alt="Image 1" width="500px" height="auto">
+                <p>Ramdom Sampled Texture</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/origin2.jpg" alt="Image 1" width="500px" height="auto">
+                <p>origin</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/quiltrandom2.jpg" alt="Image 1" width="500px" height="auto">
+                <p>Ramdom Sampled Texture</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Constructing the Oriented Laplacian Pyramid</h2>
+        <p><strong>Objective:</strong> Decompose an image into multiple scales and orientations using the steerable pyramid.</p>
+        <p>
+            The pyramid construction begins by applying a high-pass filter to compute the high-frequency residual. Next, a low-pass 
+            filter is used to compute the low-frequency band. For each scale, the low-frequency band is further decomposed into multiple 
+            directional subbands using oriented filters. This process repeats for each scale, progressively downsampling the low-frequency 
+            band. The final low-frequency residual is stored as the base of the pyramid.
+        </p>
+
+        <h3>Results</h3>
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/origin1.jpg" alt="Image 1" width="500px" height="auto">
+                <p>origin</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/quiltsimpletol5.jpg" alt="Image 1" width="500px" height="auto">
+                <p>quilt simple tol=5</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/quiltsimpletol3.jpg" alt="Image 1" width="500px" height="auto">
+                <p>quilt simple tol=3</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/quiltsimpletol1.jpg" alt="Image 1" width="500px" height="auto">
+                <p>quilt simple tol=1</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Histogram Matching</h2>
+        <p><strong>Objective:</strong> Match the histogram of a noisy image to the source image in both the spatial domain and the pyramid domain.</p>
+        <p>
+            Histogram matching ensures that the intensity or color distribution of an image matches the source texture. By iteratively 
+          matching the frequency space and pixel space of the image, the frequency and pixel distributions of the noise gradually approach 
+          those of the texture distribution, achieving the process of texture synthesis.
+        </p>
+
+        <h3>Results</h3>
+         <div class="image-container">
+            <div class="image-item">
+                <img src="./media/patch.jpg" alt="Image 1" width="300px" height="auto">
+                <p>patch</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/ssdcost.jpg" alt="Image 1" width="300px" height="auto">
+                <p>SSD cost</p>
+            </div>
+        </div>
+        
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/outputpatchbefore.jpg" alt="Image 1" width="300px" height="auto">
+                <p>overlap</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/topoverlap.jpg" alt="Image 1" width="300px" height="auto">
+                <p>topoverlap</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/leftoverlap.jpg" alt="Image 1" width="300px" height="auto">
+                <p>leftoverlap</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/seam.jpg" alt="Image 1" width="300px" height="auto">
+                <p>mask</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/horizontalseam.jpg" alt="Image 1" width="300px" height="auto">
+                <p>horizontal mask</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/verticalseam.jpg" alt="Image 1" width="300px" height="auto">
+                <p>vertical mask</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/quilt.jpg" alt="Image 1" width="1000px" height="auto">
+                <p>one step</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/origin1.jpg" alt="Image 1" width="500px" height="auto">
+                <p>origin</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/quiltcuttol3.jpg" alt="Image 1" width="500px" height="auto">
+                <p>output</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Texture Synthesis</h2>
+        <p><strong>Objective:</strong> Generate textures using the match-texture algorithm.</p>
+        <p>
+            This step uses the histogram-matched pyramid as a basis. The synthesis begins with a noisy image and progressively adjusts 
+            its pyramid representation to match that of the source texture. The process involves reconstructing the image from the adjusted 
+            pyramid while maintaining histogram alignment at each level.
+        </p>
+
+        <h3>Results</h3>
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/texture1.jpg" alt="Image 1" width="500px" height="auto">
+                <p>origin</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/textureexample1.jpg" alt="Image 1" width="500px" height="auto">
+                <p>output</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/texture2.jpg" alt="Image 1" width="500px" height="auto">
+                <p>origin</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/textureexample2.jpg" alt="Image 1" width="500px" height="auto">
+                <p>output</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Texture Transfer</h2>
+        <p><strong>Objective:</strong> Apply a texture to a target image while preserving the target’s structure and incorporating the 
+            texture’s appearance.</p>
+        <p>
+            Texture transfer involves applying the texture from a source sample onto a target image, preserving the target's structure 
+            while blending in the source texture's appearance. The implementation steps are similar to the previous section. The main 
+            difference lies in the calculation of the SSD cost image, which also includes the difference between the output image and 
+            the target image. For simplicity, set the output image to be the same size as the target image. During each step of generating 
+            the output image, use the new cost to calculate the seam and mask.
+        </p>
+
+        <h3>Results</h3>
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/origin1.jpg" alt="Image 1" width="500px" height="auto">
+                <p>origin</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/mytexture.jpg" alt="Image 1" width="500px" height="auto">
+                <p>origin</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/feynman_small.jpg" alt="Image 1" width="500px" height="auto">
+                <p>target</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/mytarget.jpg" alt="Image 1" width="500px" height="auto">
+                <p>target</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/texturetransfercoarse.jpg" alt="Image 1" width="500px" height="auto">
+                <p>output</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/mytexturetransfer.jpg" alt="Image 1" width="500px" height="auto">
+                <p>output</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Bells & Whistles: Iterative Texture Transfer</h2>
+        <p><strong>Gradually refine texture transfer results by iteratively improving the mapping between the source texture and the target image.</p>
+        <p>
+            TThe texture transfer is performed iteratively on the target image, allowing the texture to match the target image at different scales. 
+            By adjusting the patch size and alpha value during the iterations, better results can be achieved.
+        </p>
+
+        <h3>Results</h3>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/origin1.jpg" alt="Image 1" width="500px" height="auto">
+                <p>texture</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/mytexture.jpg" alt="Image 1" width="500px" height="auto">
+                <p>texture</p>
+            </div>
+        </div>
+        
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/feynman_small.jpg" alt="Image 1" width="500px" height="auto">
+                <p>target</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/mytarget.jpg" alt="Image 1" width="500px" height="auto">
+                <p>target</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/texturetransfercoarse.jpg" alt="Image 1" width="500px" height="auto">
+                <p>texture transfer</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/mytexturetransfer.jpg" alt="Image 1" width="500px" height="auto">
+                <p>texture transfer</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/iterativetexturetransfer.jpg" alt="Image 1" width="500px" height="auto">
+                <p>iterative texture transfer</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/myitertexturetransfer.jpg" alt="Image 1" width="500px" height="auto">
+                <p>iterative texture transfer</p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
