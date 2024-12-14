@@ -345,6 +345,18 @@
             the resulting direction-specific features are visualized.
         </p>
 
+        <p>Each oriented filter corresponds to high-frequency waves in a specific direction. Adding up the band-pass results of all 
+            oriented filters gives the high-frequency waves across all directions, which is equivalent to filtering directly with a 
+            Laplacian filter. Although there may be slight differences—caused by an insufficient number of directional filters—if the 
+            number of directional filters is sufficiently large, the results should be consistent.</p>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/equalization.jpg" alt="Image 1" width="1000px" height="auto">
+                <p>laplacian band pass and summed oriented band pass</p>
+            </div>
+        </div>
+
         <h3>Results</h3>
         <div class="image-container">
             <div class="image-item">
@@ -374,18 +386,6 @@
             <div class="image-item">
                 <img src="./media/filterexample2.jpg" alt="Image 1" width="1000px" height="auto">
                 <p>output</p>
-            </div>
-        </div>
-
-        <p>Each oriented filter corresponds to high-frequency waves in a specific direction. Adding up the band-pass results of all 
-            oriented filters gives the high-frequency waves across all directions, which is equivalent to filtering directly with a 
-            Laplacian filter. Although there may be slight differences—caused by an insufficient number of directional filters—if the 
-            number of directional filters is sufficiently large, the results should be consistent.</p>
-
-        <div class="image-container">
-            <div class="image-item">
-                <img src="./media/equalization.jpg" alt="Image 1" width="1000px" height="auto">
-                <p>laplacian band pass and summed oriented band pass</p>
             </div>
         </div>
 
