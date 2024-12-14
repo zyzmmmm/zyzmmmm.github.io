@@ -276,8 +276,11 @@
         <h2 class="section-title">Bells & Whistles: Iterative Texture Transfer</h2>
         <p><strong>Gradually refine texture transfer results by iteratively improving the mapping between the source texture and the target image.</p>
         <p>
-            TThe texture transfer is performed iteratively on the target image, allowing the texture to match the target image at different scales. 
-            By adjusting the patch size and alpha value during the iterations, better results can be achieved.
+            Iterative texture transfer is a process where the texture is progressively transferred onto the target image over multiple iterations. 
+            This approach ensures that the texture aligns with the underlying features of the target image across different scales, improving the 
+            overall quality of the result. In each iteration, the algorithm processes the target image using patches from the source texture. These 
+            patches are matched to the target image based on both texture similarity and structural alignment. As the iteration progresses, the patch 
+            size and alpha are reduced, allowing the algorithm to perform more precise processing.
         </p>
 
         <h3>Results</h3>
