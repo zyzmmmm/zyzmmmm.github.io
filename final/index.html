@@ -31,8 +31,12 @@
 </head>
 <body>
     <!-- Header -->
-    <<h1 style="text-align: center;">Final Project: Image Quilting</h1>
+    <h1 style="text-align: center;">Final Project</h1>
     <h2 style="text-align: center;">Yuze Zhang</h2>
+
+    <hr>
+    
+    <h1 style="text-align: center;">Project 1: Image Quilting</h1>
     <div class="section">
         <h2 class="section-title">Randomly Sampled Texture</h2>
         <p><strong>Objective:</strong> Generate a basic output texture using randomly sampled patches from the input texture to 
@@ -314,6 +318,207 @@
             </div>
         </div>
     </div>
+
+    <hr>
+
+    <h1 style="text-align: center;">Project 2: Pyramid-Based Texture Analysis and Synthesis</h1>
+    <div class="section">
+        <h2 class="section-title">Implementing Oriented Filters</h2>
+        <p><strong>Objective:</strong> Create and verify oriented filters, and demonstrate that the sum of all oriented filters 
+          for a given band equals a standard Laplacian band-pass filter.</p>
+        <p>
+            The oriented filters are used to extract direction-specific information from images, which is a critical component 
+            of the steerable pyramid. These filters operate in the spatial domain to extract oriented features at various frequency 
+            bands. The implementation involves validating the filters by summing them and showing that their combination is equivalent 
+            to a Laplacian band-pass filter. To demonstrate their utility, a set of sample images is convolved with these filters, and 
+            the resulting direction-specific features are visualized.
+        </p>
+
+        <h3>Results</h3>
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/orientedfilter.jpg" alt="Image 1" width="1000px" height="auto">
+                <p>oriented filter</p>
+            </div>
+        </div>
+        
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/example1.jpg" alt="Image 1" width="500px" height="auto">
+                <p>example</p>
+            </div>
+            <div class="image-item">
+                <img src="./media/examplegray2.jpg" alt="Image 1" width="500px" height="auto">
+                <p>example2</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/filterexample1.jpg" alt="Image 1" width="1500px" height="auto">
+                <p>output</p>
+            </div>
+        </div>
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/filterexample2.jpg" alt="Image 1" width="1500px" height="auto">
+                <p>output</p>
+            </div>
+        </div>
+
+        <p>Each oriented filter corresponds to high-frequency waves in a specific direction. Adding up the band-pass results of all 
+            oriented filters gives the high-frequency waves across all directions, which is equivalent to filtering directly with a 
+            Laplacian filter. Although there may be slight differences—caused by an insufficient number of directional filters—if the 
+            number of directional filters is sufficiently large, the results should be consistent.</p>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/equalization.jpg" alt="Image 1" width="1000px" height="auto">
+                <p>laplacian band pass and summed oriented band pass</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Constructing the Oriented Laplacian Pyramid</h2>
+        <p><strong>Objective:</strong> Decompose an image into multiple scales and orientations using the steerable pyramid.</p>
+        <p>
+            The pyramid construction begins by applying a high-pass filter to compute the high-frequency residual. Next, a low-pass 
+            filter is used to compute the low-frequency band. For each scale, the low-frequency band is further decomposed into multiple 
+            directional subbands using oriented filters. This process repeats for each scale, progressively downsampling the low-frequency 
+            band. The final low-frequency residual is stored as the base of the pyramid.
+        </p>
+
+        <h3>Results</h3>
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/orientedlaplacianpyramid.jpg" alt="Image 1" width="1500px" height="auto">
+                <p>oriented laplacian pyramid</p>
+            </div>
+        </div>
+
+        <p>The first direction corresponds to the vertical (up and down) direction, the second direction corresponds to the bottom-left to 
+            top-right direction, the third direction corresponds to the horizontal (left and right) direction, and the fourth direction corresponds 
+            to the top-left to bottom-right direction. It can be observed that the filters for each direction highlight edges perpendicular to that 
+            direction.</p>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Histogram Matching</h2>
+        <p><strong>Objective:</strong> Match the histogram of a noisy image to the source image in both the spatial domain and the pyramid domain.</p>
+        <p>
+            Histogram matching ensures that the intensity or color distribution of an image matches the source texture. By iteratively 
+          matching the frequency space and pixel space of the image, the frequency and pixel distributions of the noise gradually approach 
+          those of the texture distribution, achieving the process of texture synthesis.
+        </p>
+
+        <h3>Results</h3>
+         <div class="image-container">
+            <div class="image-item">
+                <img src="./media/histogrammatchgray.jpg" alt="Image 1" width="1000px" height="auto">
+                <p>historgram matching output</p>
+            </div>
+        </div>
+
+        <p>I also performed histogram matching on each channel of the three-channel image, resulting in the following output. Although it 
+            still appears noisy, it now reflects the corresponding colors of the target image and has a similar histogram distribution. The 
+            images below show the original noise, the target image, and the matched noise, with histograms representing the grayscale 
+            distributions of each.</p>
+        
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/histogrammatchcolor1.jpg" alt="Image 1" width="1000px" height="auto">
+                <p>histogram matching output</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/histogrammatchcolor2.jpg" alt="Image 1" width="1000px" height="auto">
+                <p>histogram matching output</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Texture Synthesis</h2>
+        <p><strong>Objective:</strong> Generate textures using the match-texture algorithm.</p>
+        <p>
+            This step uses the histogram-matched pyramid as a basis. The synthesis begins with a noisy image and progressively adjusts 
+            its pyramid representation to match that of the source texture. The process involves reconstructing the image from the adjusted 
+            pyramid while maintaining histogram alignment at each level.
+        </p>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/withoutPCA.jpg" alt="Image 1" width="1000px" height="auto">
+                <p>without PCA</p>
+            </div>
+        </div>
+
+        <p>To get better representation of the image, we use PCA for image processing and feature extraction. And final results are shown below.</p>
+
+        <h3>Results</h3>
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/matching1.jpg" alt="Image 1" width="500px" height="auto">
+                <p></p>
+            </div>
+            <div class="image-item">
+                <img src="./media/matching2.jpg" alt="Image 1" width="500px" height="auto">
+                <p></p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/matching3.jpg" alt="Image 1" width="500px" height="auto">
+                <p></p>
+            </div>
+            <div class="image-item">
+                <img src="./media/matching4.jpg" alt="Image 1" width="500px" height="auto">
+                <p></p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/matching5.jpg" alt="Image 1" width="500px" height="auto">
+                <p></p>
+            </div>
+            <div class="image-item">
+                <img src="./media/matching6.jpg" alt="Image 1" width="500px" height="auto">
+                <p></p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/matching7.jpg" alt="Image 1" width="500px" height="auto">
+                <p></p>
+            </div>
+            <div class="image-item">
+                <img src="./media/matching8.jpg" alt="Image 1" width="500px" height="auto">
+                <p></p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="./media/matching9.jpg" alt="Image 1" width="500px" height="auto">
+                <p></p>
+            </div>
+            <div class="image-item">
+                <img src="./media/matching10.jpg" alt="Image 1" width="500px" height="auto">
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
 
 
 </body>
