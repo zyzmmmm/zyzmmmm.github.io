@@ -50,6 +50,8 @@
             overlap between patches.
         </p>
 
+        <p><strong>Parameters</strong>: output size: 200, patch size: 15</p>
+
         <h3>Results</h3>
         <div class="image-container">
             <div class="image-item">
@@ -87,6 +89,8 @@
             algorithm has stronger generative ability, but mismatched patterns may occur; when tol is small, the patterns are more 
             uniform, but the ability to generate new content is limited.
         </p>
+
+        <p><strong>Parameters</strong>: output size: 300, patch size: 25, overlap: 11, tolerance: 3</p>
 
         <h3>Results</h3>
         <div class="image-container">
@@ -142,11 +146,11 @@
             </div>
             <div class="image-item">
                 <img src="./media/topoverlap.jpg" alt="Image 1" width="300px" height="auto">
-                <p>topoverlap</p>
+                <p>top overlap</p>
             </div>
             <div class="image-item">
                 <img src="./media/leftoverlap.jpg" alt="Image 1" width="300px" height="auto">
-                <p>leftoverlap</p>
+                <p>left overlap</p>
             </div>
         </div>
 
@@ -193,6 +197,8 @@
             The output images should be larger than the input texture sample to demonstrate the algorithm's scalability.
         </p>
 
+        <p><strong>Parameters</strong>: output size: 300, input size: 200, patch size: 25, overlap: 11, tolerance: 3</p>
+
         <h3>Results</h3>
         <div class="image-container">
             <div class="image-item">
@@ -228,6 +234,8 @@
             the target image. For simplicity, set the output image to be the same size as the target image. During each step of generating 
             the output image, use the new cost to calculate the seam and mask.
         </p>
+
+        <p><strong>Parameters</strong>: output size: 300, input size: 200, patch size: 25, overlap: 11, tolerance: 3, alpha: 0.5</p>
 
         <h3>Results</h3>
         <div class="image-container">
