@@ -473,7 +473,11 @@
             </div>
         </div>
 
-        <p>To get better representation of the image, I use PCA for image processing and feature extraction. And final results are shown below.</p>
+        <p>To get better representation of the image, I use PCA for image processing and feature extraction. And final results are shown below. 
+            This algorithm generated many beautiful images, but there are also numerous failure cases where the results do not match the original 
+            texture (some of these are shown below). I found that the algorithm performs well on irregular and symmetrical textures but struggles 
+            with other types of textures. The authors mentioned in the paper that this is because the algorithm assumes the input image to be 
+            periodic. Additionally, zero-padding in the frequency domain may lead to the appearance of artifacts.</p>
 
         <h3>Results</h3>
         <div class="image-container">
