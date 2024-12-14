@@ -82,7 +82,7 @@
         <p>
             In this step, overlapping patches are used to ensure better coherence between adjacent patches. Overlapping regions 
             are evaluated based on their similarity using the Sum of Squared Differences (SSD). Patches are chosen randomly from 
-            those with SSD costs below a defined threshold (tol) To enhance the generative capability of the algorithm, we select 
+            those with SSD costs below a defined threshold (tol) To enhance the generative capability of the algorithm, I select 
             the tol patches with the lowest cost and randomly choose one from these patches to fill in. When tol is large, the 
             algorithm has stronger generative ability, but mismatched patterns may occur; when tol is small, the patterns are more 
             uniform, but the ability to generate new content is limited.
@@ -119,7 +119,7 @@
         <p>
             This step introduces seam finding to remove visible edge artifacts in overlapping patches. A minimum-cost path is 
             computed through the overlapping region, blending pixels from both patches based on similarity. To avoid obvious edges 
-            in the stitching between patches, we find the path with the minimum cost and create a mask based on this path. The parts 
+            in the stitching between patches, I find the path with the minimum cost and create a mask based on this path. The parts 
             of the patch corresponding to the mask value of 1 are then stitched into the image, achieving a better visual effect.
         </p>
 
@@ -457,7 +457,7 @@
             </div>
         </div>
 
-        <p>To get better representation of the image, we use PCA for image processing and feature extraction. And final results are shown below.</p>
+        <p>To get better representation of the image, I use PCA for image processing and feature extraction. And final results are shown below.</p>
 
         <h3>Results</h3>
         <div class="image-container">
