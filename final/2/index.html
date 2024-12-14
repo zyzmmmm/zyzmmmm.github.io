@@ -79,7 +79,8 @@
 
         <p>Each oriented filter corresponds to high-frequency waves in a specific direction. Adding up the band-pass results of all 
             oriented filters gives the high-frequency waves across all directions, which is equivalent to filtering directly with a 
-            Laplacian filter.</p>
+            Laplacian filter. Although there may be slight differences—caused by an insufficient number of directional filters—if the 
+            number of directional filters is sufficiently large, the results should be consistent.</p>
 
         <div class="image-container">
             <div class="image-item">
@@ -107,6 +108,11 @@
                 <p>oriented laplacian pyramid</p>
             </div>
         </div>
+
+        <p>The first direction corresponds to the vertical (up and down) direction, the second direction corresponds to the bottom-left to 
+            top-right direction, the third direction corresponds to the horizontal (left and right) direction, and the fourth direction corresponds 
+            to the top-left to bottom-right direction. It can be observed that the filters for each direction highlight edges perpendicular to that 
+            direction.</p>
     </div>
 
     <div class="section">
